@@ -1,0 +1,6 @@
+{
+  "summary":  "Architectural and design implementation plan for the bilingual (DE/EN) responsive web application for MMag. Martin Knopper Steuerberatung, featuring brand colors (#E86404 orange, #14285C navy, neutral slate), dark/light mode, top navigation and responsive bottom bar, sliding right-side contact drawer, full practice content (services, cross-border art VAT guide, 28-year experience with Bach musical motif, IURIO workflow, transparent fee schedule), and \"Request Initial Consultation / Erstgespräch anfragen\" scheduler with Google Calendar API + ICS export.",
+  "updatedAt":  "2026-11-20T09:41:45.101387607Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
