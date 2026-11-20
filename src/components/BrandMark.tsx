@@ -54,7 +54,7 @@ export function MartinKnopperLogo({
     <span className="relative inline-block">
       <span>ı</span>
       <ParagraphSeal
-        className={`absolute left-1/2 -translate-x-1/2 ${topOffsetClass} ${sealSizeClass} text-[#E86404] dark:text-[#F0781E]`}
+        className={`absolute left-1/2 -translate-x-1/2 ${topOffsetClass} ${sealSizeClass} text-[#B84F05] dark:text-[#F28C45]`}
       />
     </span>
   );
@@ -62,7 +62,7 @@ export function MartinKnopperLogo({
   if (variant === 'compact') {
     return (
       <span
-        className={`font-wordmark inline-flex items-baseline gap-1.5 font-bold tracking-tight text-[#E86404] dark:text-[#F0781E] leading-none select-none ${className}`}
+        className={`font-wordmark inline-flex items-baseline gap-1.5 font-bold tracking-tight text-[#B84F05] dark:text-[#F28C45] leading-none select-none ${className}`}
       >
         <span>
           mart{renderDotlessIWithSeal('w-2.5 h-2.5', '-top-[0.18em]')}n
@@ -74,7 +74,7 @@ export function MartinKnopperLogo({
 
   return (
     <div className={`inline-flex flex-col items-center leading-none select-none ${className}`}>
-      <div className="font-wordmark text-2xl sm:text-3xl font-bold tracking-tight text-[#E86404] dark:text-[#F0781E] flex flex-col items-center">
+      <div className="font-wordmark text-2xl sm:text-3xl font-bold tracking-tight text-[#B84F05] dark:text-[#F28C45] flex flex-col items-center">
         <span className="leading-[0.88]">
           mart{renderDotlessIWithSeal('w-3 h-3', '-top-[0.22em]')}n
         </span>
@@ -84,7 +84,7 @@ export function MartinKnopperLogo({
         className={`mt-1.5 text-[11px] font-semibold tracking-[0.08em] ${
           invertOnDarkBg
             ? 'text-slate-200'
-            : 'text-[#14285C] dark:text-slate-200'
+            : 'text-[#102D69] dark:text-slate-200'
         }`}
       >
         {subLabel}
@@ -114,7 +114,7 @@ export function EditorialImage({
 
   return (
     <figure
-      className={`relative overflow-hidden rounded-2xl border border-[#14285C]/12 dark:border-slate-800 bg-[#F4F4FA] dark:bg-[#121C33] ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-[#102D69]/12 dark:border-slate-800 bg-[#F3F5FA] dark:bg-[#0B1734] ${className}`}
     >
       {!failed ? (
         <img
@@ -125,15 +125,15 @@ export function EditorialImage({
           className={`w-full h-full object-cover ${imgClassName}`}
         />
       ) : (
-        <div className="w-full h-full min-h-[260px] flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-[#F4F4FA] via-white to-[#E86404]/10 dark:from-[#121C33] dark:via-[#0B1120] dark:to-[#F0781E]/15">
-          <Scale className="w-10 h-10 text-[#E86404] dark:text-[#F0781E] mb-3" />
-          <p className="text-sm font-semibold text-[#14285C] dark:text-slate-100">
+        <div className="w-full h-full min-h-[260px] flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-[#F3F5FA] via-white to-[#EC6608]/10 dark:from-[#0B1734] dark:via-[#060F26] dark:to-[#F28C45]/15">
+          <Scale className="w-10 h-10 text-[#B84F05] dark:text-[#F28C45] mb-3" />
+          <p className="text-sm font-semibold text-[#102D69] dark:text-slate-100">
             {alt}
           </p>
         </div>
       )}
       {caption && (
-        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B1120]/90 via-[#0B1120]/55 to-transparent px-5 pt-10 pb-4 text-white">
+        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#060F26]/90 via-[#060F26]/55 to-transparent px-5 pt-10 pb-4 text-white">
           <p className="text-sm font-semibold tracking-tight">{caption}</p>
           {subCaption && (
             <p className="text-xs text-slate-200 mt-0.5">{subCaption}</p>

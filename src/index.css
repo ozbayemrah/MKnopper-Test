@@ -3,18 +3,19 @@
 
 @layer base {
   :root {
-    --brand-orange: #E86404;
-    --brand-orange-hover: #cf5702;
-    --brand-navy: #14285C;
-    --brand-surface: #F4F4FA;
-    --brand-ink: #26304A;
+    --brand-orange: #EC6608;
+    --brand-action: #B84F05;
+    --brand-orange-hover: #A84604;
+    --brand-navy: #102D69;
+    --brand-surface: #F3F5FA;
+    --brand-ink: #1B1F2B;
   }
 
   .dark {
-    --brand-orange: #F0781E;
-    --brand-orange-hover: #fb8b37;
+    --brand-orange: #F28C45;
+    --brand-orange-hover: #F6A96F;
     --brand-navy: #F1F5F9;
-    --brand-surface: #121C33;
+    --brand-surface: #0B1734;
     --brand-ink: #CBD5E1;
   }
 
@@ -69,7 +70,7 @@
 }
 
 .dark .gsi-material-button {
-  background-color: #121C33;
+  background-color: #0B1734;
   border-color: #334155;
   color: #f8fafc;
 }

@@ -248,6 +248,8 @@ export interface PracticeContent {
     icsToastSuccess: string;
     googleToastSuccess: string;
     actions: {
+      sendRequest: string;
+      sending: string;
       addToGoogleCalendar: string;
       downloadIcs: string;
       creating: string;
@@ -264,6 +266,8 @@ export interface PracticeContent {
     };
     success: {
       requestSentBanner: string;
+      titleSent: string;
+      descSent: string;
       titleGoogle: string;
       titleIcs: string;
       descGoogle: string;
@@ -342,12 +346,12 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       backToTop: 'Nach oben',
     },
     hero: {
-      kicker: 'Steuerberatung MMag. Martin Knopper · Graz',
+      kicker: 'Jurist · Betriebswirt · Steuerberatung · Graz',
       headlineAccent: 'steuer?!',
       headlineMain: 'lass ihn machen!',
-      subline: 'Ihre Kunst. Ihre Praxis. Ihre Kamera. Meine Steuer.',
+      subline: 'Recht und Wirtschaft in einem Kopf.',
       description:
-        'Volldigitale und persönliche Steuerberatung aus Graz — von Einzelunternehmen und Gesundheitsberufen bis zu Kunst über Grenzen und internationalen Steuerfällen.',
+        'Der erste Schritt ist ein Termin, persönlich oder per Videocall. Kommt es zur Zusammenarbeit, ist das Erstgespräch kostenlos.',
       primaryCta: 'Erstgespräch anfragen',
       secondaryCta: 'Honorare ansehen',
       portraitCaption: 'MMag. Martin Knopper · Steuerberater',
@@ -361,7 +365,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
     },
     services: {
       kicker: 'Wofür ich da bin',
-      title: 'Klarheit in steuerlichen und wirtschaftlichen Fragen',
+      title: 'ihre kunst. ihre praxis. ihre kamera. meine steuer.',
       intro:
         'Ich bin Steuerberater mit Kanzlei in Graz. Ich arbeite volldigital und international, von Graz aus ebenso wie von Berlin oder von unterwegs.',
       items: [
@@ -540,7 +544,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
     },
     experience: {
       kicker: 'Was mich ausmacht',
-      title: '28 Jahre Erfahrung aus drei Welten',
+      title: '28 jahre erfahrung aus drei welten.',
       intro:
         'Öffentliche Verwaltung, NPO und Steuerberatung: drei Perspektiven vereint in einer Einzelkanzlei.',
       timelineLegend: {
@@ -759,7 +763,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
     },
     fees: {
       kicker: 'Transparenz von Anfang an',
-      title: 'Meine Honorare im Überblick',
+      title: 'meine honorare im überblick.',
       intro:
         'Vor Beginn unserer Zusammenarbeit besprechen wir den voraussichtlichen Leistungsumfang und vereinbaren auf Wunsch einen passenden Honorarrahmen.',
       columns: {
@@ -773,22 +777,22 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         { service: 'Buchhaltung', rate: '€ 95', unit: 'pro Stunde' },
         { service: 'Steuererklärungen', rate: '€ 150', unit: 'pro Stunde' },
         { service: 'Steuerberatung', rate: '€ 185', unit: 'pro Stunde' },
-        { service: 'Einnahmen-Ausgaben-Rechnung', rate: 'ab € 700', unit: 'pauschal nach Aufwand' },
-        { service: 'Jahresabschluss für Einzelunternehmen & Personengesellschaften', rate: 'ab € 1.200', unit: 'pauschal nach Aufwand' },
-        { service: 'Jahresabschluss Kapitalgesellschaften', rate: 'ab € 1.800', unit: 'pauschal nach Aufwand' },
+        { service: 'Einnahmen-Ausgaben-Rechnung', rate: 'ab € 700', unit: '' },
+        { service: 'Jahresabschluss für Einzelunternehmen und Personengesellschaften', rate: 'ab € 1.200', unit: '' },
+        { service: 'Jahresabschluss Kapitalgesellschaften', rate: 'ab € 1.800', unit: '' },
         { service: 'Erstgespräch', rate: 'honorarfrei', unit: 'falls in der Folge Beauftragung', accent: true },
-        { service: 'Onboarding (IURIO & BMD Einrichtung)', rate: '€ 300', unit: 'einmalig' },
+        { service: 'Onboarding', rate: '€ 300', unit: 'einmalig' },
         { service: 'Beratung ohne bestehendes Mandat', rate: '€ 185', unit: 'pro halber Stunde' },
       ],
       factorsTitle: 'Wovon das Honorar abhängt',
       factorsText:
-        'Das Honorar richtet sich nach dem Aufwand: Umfang der Belege, Qualität und Vollständigkeit der Unterlagen, Anzahl der Geschäftsvorfälle, Rechtsform, steuerliche Komplexität sowie Abstimmungs- und Beratungsaufwand.',
-      agreementTitle: 'Individuelle Vereinbarung & Umsatzsteuer',
+        'Das Honorar richtet sich nach dem Aufwand. Wichtig sind vor allem der Umfang der Belege, die Qualität und Vollständigkeit der Unterlagen, die Anzahl der Geschäftsvorfälle, die Rechtsform, die steuerliche Komplexität sowie der Abstimmungs- und Beratungsaufwand.',
+      agreementTitle: 'Individuelle Vereinbarung',
       agreementText:
-        'So haben Sie von Anfang an Klarheit über die zu erwartenden Kosten. Alle ausgewiesenen Honorare verstehen sich zuzüglich 20 % Umsatzsteuer.',
-      deductibleTitle: 'Wichtiger steuerlicher Hinweis',
+        'So haben Sie von Anfang an Klarheit über die zu erwartenden Kosten. Die ausgewiesenen Honorare verstehen sich zuzüglich 20 % Umsatzsteuer.',
+      deductibleTitle: 'Wichtiger Hinweis',
       deductibleText:
-        'Meine Honorare sind nach Maßgabe der gesetzlichen Bestimmungen steuerlich abzugsfähig — als Betriebsausgaben oder als Sonderausgaben. Gerne informiere ich Sie über die mögliche Berücksichtigung in Ihrem konkreten Fall.',
+        'Meine Honorare sind nach Maßgabe der gesetzlichen Bestimmungen steuerlich abzugsfähig, als Betriebsausgaben oder als Sonderausgaben. Die dadurch resultierende tatsächliche steuerliche Entlastung hängt von der individuellen steuerlichen Situation ab. Gerne informiere ich Sie über die mögliche steuerliche Berücksichtigung in Ihrem konkreten Fall.',
     },
     faq: {
       kicker: 'Häufige Fragen',
@@ -947,6 +951,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       icsToastSuccess: 'Beratungsanfrage vorbereitet & Kalenderdatei (.ics) heruntergeladen.',
       googleToastSuccess: 'Beratungsanfrage gesendet & im Google Kalender eingetragen.',
       actions: {
+        sendRequest: 'Erstgespräch anfragen',
+        sending: 'Wird gesendet …',
         addToGoogleCalendar: 'In Google Kalender eintragen',
         downloadIcs: 'Kalenderdatei (.ics) laden',
         creating: 'Termin wird eingetragen...',
@@ -964,6 +970,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       success: {
         requestSentBanner:
           'Ihre Anfrage wurde erfolgreich übermittelt — alle Details für Ihren Wunschtermin finden Sie unten.',
+        titleSent: 'Vielen Dank! Ihre Anfrage ist eingegangen.',
+        descSent: 'Ich antworte in der Regel innerhalb von ein bis zwei Werktagen. Kommt es zur Zusammenarbeit, ist das Erstgespräch kostenlos.',
         titleGoogle: 'Termin in Ihrem Google Kalender erstellt',
         titleIcs: 'Kalenderdatei (.ics) heruntergeladen',
         descGoogle:
@@ -1041,9 +1049,9 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       experience: {
         title: '28 Jahre Erfahrung · Martin Knopper Graz',
         description:
-          'Steuerberater, Jurist und Betriebswirt: 28 Jahre Praxis in öffentlicher Verwaltung, Großkanzlei und Musik. Recht & Wirtschaft vereint.',
+          'Steuerberater, Jurist und Betriebswirt: Öffentliche Verwaltung, NPO und Steuerberatung: drei Perspektiven in einer Kanzlei. Recht und Wirtschaft in einem Kopf.',
         image: 'images/knopper-piano-childhood.jpg',
-        imageAlt: 'MMag. Martin Knopper — 28 Jahre Erfahrung zwischen Verwaltung, Kanzlei und Musik',
+        imageAlt: 'MMag. Martin Knopper, Steuerberater in Graz',
       },
       testimonials: {
         title: 'Klientenstimmen · Martin Knopper Graz',
@@ -1712,6 +1720,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       icsToastSuccess: 'Consultation request prepared and calendar file (.ics) downloaded.',
       googleToastSuccess: 'Consultation request sent and added to Google Calendar.',
       actions: {
+        sendRequest: 'Request initial consultation',
+        sending: 'Sending …',
         addToGoogleCalendar: 'Add to Google Calendar',
         downloadIcs: 'Download Calendar Invite (.ics)',
         creating: 'Creating calendar event...',
@@ -1729,6 +1739,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       success: {
         requestSentBanner:
           'Your consultation request has been sent successfully — your appointment details are confirmed below.',
+        titleSent: 'Thank you! Your request has been received.',
+        descSent: 'I usually reply within one to two working days. If we decide to work together, the initial consultation is free of charge.',
         titleGoogle: 'Appointment created in Google Calendar',
         titleIcs: 'Calendar invitation (.ics) downloaded',
         descGoogle:

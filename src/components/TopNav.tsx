@@ -19,13 +19,13 @@ export function TopNav({ content, activeSection, onOpenConsultation }: TopNavPro
   ];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-[#14285C]/10 dark:border-slate-800/80 bg-white/90 dark:bg-[#0B1120]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-30 border-b border-[#102D69]/10 dark:border-slate-800/80 bg-white/90 dark:bg-[#060F26]/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-3 sm:gap-8">
         {/* Zone 1: Single-line brand wordmark with § seal */}
         <a
           href="#top"
           aria-label={`${content.meta.brandName} — ${content.meta.brandSub}`}
-          className="whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E86404]"
+          className="whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#EC6608]"
         >
           <MartinKnopperLogo variant="compact" className="text-xl sm:text-2xl" />
         </a>
@@ -33,7 +33,7 @@ export function TopNav({ content, activeSection, onOpenConsultation }: TopNavPro
         {/* Zone 2: 5 concise single-line section links with Scroll-Spy active highlight */}
         <nav
           aria-label="Primary Navigation"
-          className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-semibold text-[#26304A] dark:text-slate-300"
+          className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-semibold text-[#1B1F2B] dark:text-slate-300"
         >
           {navLinks.map((item) => {
             const isActive = activeSection === item.id;
@@ -44,8 +44,8 @@ export function TopNav({ content, activeSection, onOpenConsultation }: TopNavPro
                 aria-current={isActive ? 'true' : undefined}
                 className={`py-2 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
                   isActive
-                    ? 'text-[#E86404] dark:text-[#F0781E] border-[#E86404] dark:border-[#F0781E]'
-                    : 'border-transparent hover:text-[#E86404] dark:hover:text-[#F0781E] hover:border-[#E86404] dark:hover:border-[#F0781E]'
+                    ? 'text-[#B84F05] dark:text-[#F28C45] border-[#EC6608] dark:border-[#F28C45]'
+                    : 'border-transparent hover:text-[#B84F05] dark:hover:text-[#F28C45] hover:border-[#EC6608] dark:hover:border-[#F28C45]'
                 }`}
               >
                 {item.label}
@@ -59,7 +59,7 @@ export function TopNav({ content, activeSection, onOpenConsultation }: TopNavPro
           <button
             type="button"
             onClick={onOpenConsultation}
-            className="min-h-[40px] inline-flex items-center gap-2 px-3 sm:px-5 py-2 rounded-lg bg-[#14285C] hover:bg-[#1d387d] dark:bg-[#F0781E] dark:hover:bg-[#fb8b37] text-white dark:text-[#0B1120] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E86404]"
+            className="min-h-[40px] inline-flex items-center gap-2 px-3 sm:px-5 py-2 rounded-lg bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
           >
             <CalendarCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
             <span className="hidden lg:inline">{content.nav.cta}</span>

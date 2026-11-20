@@ -59,19 +59,19 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
   return (
     <section
       id="faq"
-      className="py-14 sm:py-20 bg-[#F4F4FA]/55 dark:bg-[#0D1424] border-b border-[#14285C]/10 dark:border-slate-800/80"
+      className="py-14 sm:py-20 bg-[#F3F5FA]/55 dark:bg-[#0D1424] border-b border-[#102D69]/10 dark:border-slate-800/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header & Category Filter Controls */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#E86404] dark:text-[#F0781E] mb-3">
+            <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#B84F05] dark:text-[#F28C45] mb-3">
               {content.faq.kicker}
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#14285C] dark:text-white tracking-tight mb-3 text-balance">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#102D69] dark:text-white tracking-tight mb-3 text-balance">
               {content.faq.title}
             </h2>
-            <p className="text-base sm:text-lg text-[#26304A] dark:text-slate-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
               {content.faq.subtitle}
             </p>
           </div>
@@ -79,7 +79,7 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
           <button
             type="button"
             onClick={handleToggleAll}
-            className="min-h-[40px] px-4 py-2 rounded-lg border border-[#14285C]/15 dark:border-slate-700 bg-white dark:bg-[#121C33] text-xs font-bold text-[#14285C] dark:text-slate-100 hover:border-[#E86404] dark:hover:border-[#F0781E] transition-colors whitespace-nowrap shrink-0 self-start lg:self-auto cursor-pointer"
+            className="min-h-[40px] px-4 py-2 rounded-lg border border-[#102D69]/15 dark:border-slate-700 bg-white dark:bg-[#0B1734] text-xs font-bold text-[#102D69] dark:text-slate-100 hover:border-[#EC6608] dark:hover:border-[#F28C45] transition-colors whitespace-nowrap shrink-0 self-start lg:self-auto cursor-pointer"
           >
             {allVisibleExpanded ? content.faq.collapseAllLabel : content.faq.expandAllLabel}
           </button>
@@ -90,7 +90,7 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
           <div
             role="tablist"
             aria-label={content.faq.kicker}
-            className="inline-flex flex-nowrap items-center p-1 rounded-xl bg-white dark:bg-[#121C33] border border-[#14285C]/12 dark:border-slate-800 gap-1"
+            className="inline-flex flex-nowrap items-center p-1 rounded-xl bg-white dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 gap-1"
           >
             <button
               type="button"
@@ -99,8 +99,8 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
               onClick={() => handleSelectCategory('all')}
               className={`h-9 px-3.5 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 selectedCategory === 'all'
-                  ? 'bg-[#14285C] text-white dark:bg-[#193270]'
-                  : 'text-[#26304A] dark:text-slate-300 hover:bg-[#F4F4FA] dark:hover:bg-[#0B1120]'
+                  ? 'bg-[#102D69] text-white dark:bg-[#193270]'
+                  : 'text-[#1B1F2B] dark:text-slate-300 hover:bg-[#F3F5FA] dark:hover:bg-[#060F26]'
               }`}
             >
               {content.faq.allCategoriesLabel}
@@ -117,8 +117,8 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
                   onClick={() => handleSelectCategory(cat)}
                   className={`h-9 px-3.5 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     active
-                      ? 'bg-[#14285C] text-white dark:bg-[#193270]'
-                      : 'text-[#26304A] dark:text-slate-300 hover:bg-[#F4F4FA] dark:hover:bg-[#0B1120]'
+                      ? 'bg-[#102D69] text-white dark:bg-[#193270]'
+                      : 'text-[#1B1F2B] dark:text-slate-300 hover:bg-[#F3F5FA] dark:hover:bg-[#060F26]'
                   }`}
                 >
                   {content.faq.categories[cat]}
@@ -139,10 +139,10 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
             return (
               <div
                 key={item.id}
-                className={`rounded-xl border transition-colors bg-white dark:bg-[#121C33] ${
+                className={`rounded-xl border transition-colors bg-white dark:bg-[#0B1734] ${
                   isOpen
-                    ? 'border-[#E86404]/50 dark:border-[#F0781E]/50'
-                    : 'border-[#14285C]/12 dark:border-slate-800 hover:border-[#14285C]/25 dark:hover:border-slate-700'
+                    ? 'border-[#EC6608]/50 dark:border-[#F28C45]/50'
+                    : 'border-[#102D69]/12 dark:border-slate-800 hover:border-[#102D69]/25 dark:hover:border-slate-700'
                 }`}
               >
                 <h3 className="m-0">
@@ -152,24 +152,24 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => handleToggleItem(item.id)}
-                    className="w-full min-h-[56px] px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E86404] rounded-xl"
+                    className="w-full min-h-[56px] px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608] rounded-xl"
                   >
                     <div className="min-w-0 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
-                      <span className="font-mono-tabular text-xs font-bold text-[#E86404] dark:text-[#F0781E] shrink-0">
+                      <span className="font-mono-tabular text-xs font-bold text-[#B84F05] dark:text-[#F28C45] shrink-0">
                         {itemIndex}
                       </span>
                       <div className="min-w-0">
-                        <span className="block text-sm sm:text-base font-bold text-[#14285C] dark:text-white leading-snug">
+                        <span className="block text-sm sm:text-base font-bold text-[#102D69] dark:text-white leading-snug">
                           {item.question}
                         </span>
-                        <span className="block text-[11px] font-medium text-[#26304A]/70 dark:text-slate-400 mt-0.5">
+                        <span className="block text-[11px] font-medium text-[#1B1F2B]/70 dark:text-slate-400 mt-0.5">
                           {content.faq.categories[item.category]}
                         </span>
                       </div>
                     </div>
 
                     <ChevronDown
-                      className={`w-5 h-5 text-[#E86404] dark:text-[#F0781E] shrink-0 transition-transform duration-200 ${
+                      className={`w-5 h-5 text-[#B84F05] dark:text-[#F28C45] shrink-0 transition-transform duration-200 ${
                         isOpen ? 'rotate-180' : ''
                       }`}
                       aria-hidden="true"
@@ -184,8 +184,8 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
                   hidden={!isOpen}
                   className="px-5 sm:px-6 pb-5 pt-0"
                 >
-                  <div className="sm:pl-8 pt-3 border-t border-[#14285C]/10 dark:border-slate-800">
-                    <p className="text-sm sm:text-[15px] text-[#26304A] dark:text-slate-300 leading-relaxed max-w-4xl">
+                  <div className="sm:pl-8 pt-3 border-t border-[#102D69]/10 dark:border-slate-800">
+                    <p className="text-sm sm:text-[15px] text-[#1B1F2B] dark:text-slate-300 leading-relaxed max-w-4xl">
                       {item.answer}
                     </p>
                   </div>
@@ -196,14 +196,14 @@ export function FaqSection({ content, onOpenConsultation }: FaqSectionProps) {
         </div>
 
         {/* Direct Consultation Escalation Strip */}
-        <div className="rounded-xl bg-white dark:bg-[#121C33] border border-[#14285C]/12 dark:border-slate-800 px-5 py-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <p className="text-sm font-semibold text-[#14285C] dark:text-slate-200">
+        <div className="rounded-xl bg-white dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 px-5 py-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p className="text-sm font-semibold text-[#102D69] dark:text-slate-200">
             {content.faq.ctaPrompt}
           </p>
           <button
             type="button"
             onClick={onOpenConsultation}
-            className="min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#E86404] hover:bg-[#cf5702] dark:bg-[#F0781E] dark:hover:bg-[#fb8b37] text-white dark:text-[#0B1120] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            className="min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             <CalendarCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
             <span>{content.faq.ctaButton}</span>

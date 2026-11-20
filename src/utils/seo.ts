@@ -167,11 +167,6 @@ export function updateDocumentSeo(
             },
             {
               '@type': 'WebPageElement',
-              name: content.testimonials.kicker,
-              url: `${baseUrl}#testimonials`,
-            },
-            {
-              '@type': 'WebPageElement',
               name: content.nav.iurio,
               url: `${baseUrl}#iurio`,
             },

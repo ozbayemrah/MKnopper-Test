@@ -12,7 +12,6 @@ import { HeroSection } from './components/HeroSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ArtVatSection } from './components/ArtVatSection';
 import { ExperienceSection } from './components/ExperienceSection';
-import { TestimonialsSliderSection } from './components/TestimonialsSliderSection';
 import { IurioSection } from './components/IurioSection';
 import { FeeScheduleSection } from './components/FeeScheduleSection';
 import { FaqSection } from './components/FaqSection';
@@ -26,7 +25,6 @@ const OBSERVED_SECTION_IDS = [
   'services',
   'art-vat',
   'experience',
-  'testimonials',
   'iurio',
   'fees',
   'faq',
@@ -154,7 +152,7 @@ export default function App() {
   }, [locale, activeSection, consultationModalOpen, content]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0B1120] text-[#26304A] dark:text-slate-200 transition-colors">
+    <div className="min-h-screen bg-white dark:bg-[#060F26] text-[#1B1F2B] dark:text-slate-200 transition-colors">
       <TopNav
         content={content}
         activeSection={activeSection}
@@ -177,8 +175,6 @@ export default function App() {
 
         <ExperienceSection content={content} />
 
-        <TestimonialsSliderSection content={content} />
-
         <IurioSection content={content} />
 
         <FeeScheduleSection content={content} />
@@ -195,23 +191,23 @@ export default function App() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-10 flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-[#E86404]/10 dark:bg-[#F0781E]/15 text-[#E86404] dark:text-[#F0781E] flex items-center justify-center shrink-0 mt-1">
+              <div className="w-12 h-12 rounded-xl bg-[#EC6608]/10 dark:bg-[#F28C45]/15 text-[#B84F05] dark:text-[#F28C45] flex items-center justify-center shrink-0 mt-1">
                 <CalendarCheck className="w-6 h-6" aria-hidden="true" />
               </div>
               <div>
-                <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#E86404] dark:text-[#F0781E] mb-2">
+                <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#B84F05] dark:text-[#F28C45] mb-2">
                   {content.consultation.kicker}
                 </p>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#14285C] dark:text-white tracking-tight mb-3">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#102D69] dark:text-white tracking-tight mb-3">
                   {content.consultation.title}
                 </h2>
-                <p className="text-base sm:text-lg text-[#26304A] dark:text-slate-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
                   {content.consultation.subtitle}
                 </p>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white dark:bg-[#121C33] border border-[#14285C]/12 dark:border-slate-800 p-5 sm:p-8">
+            <div className="rounded-2xl bg-white dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 p-5 sm:p-8">
               <ConsultationScheduler
                 content={content}
                 locale={locale}
@@ -256,7 +252,7 @@ export default function App() {
         title={content.utility.backToTop}
         aria-hidden={!showBackToTop}
         tabIndex={showBackToTop ? 0 : -1}
-        className={`fixed bottom-20 md:bottom-[72px] right-4 sm:right-6 z-30 h-11 px-3.5 inline-flex items-center gap-2 rounded-xl bg-[#14285C] hover:bg-[#E86404] dark:bg-[#121C33] dark:hover:bg-[#F0781E] text-white dark:text-white dark:hover:text-[#0B1120] border border-[#14285C]/20 dark:border-slate-700 shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E86404] ${
+        className={`fixed bottom-20 md:bottom-[72px] right-4 sm:right-6 z-30 h-11 px-3.5 inline-flex items-center gap-2 rounded-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#0B1734] dark:hover:bg-[#F28C45] text-white dark:text-white dark:hover:text-[#060F26] border border-[#102D69]/20 dark:border-slate-700 shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608] ${
           showBackToTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-3 pointer-events-none'
@@ -273,9 +269,9 @@ export default function App() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-20 right-4 sm:right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-xl bg-[#14285C] dark:bg-[#193270] text-white border border-[#E86404]/50 shadow-xl max-w-sm"
+          className="fixed bottom-20 right-4 sm:right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-xl bg-[#102D69] dark:bg-[#193270] text-white border border-[#EC6608]/50 shadow-xl max-w-sm"
         >
-          <CheckCircle2 className="w-5 h-5 text-[#F0781E] shrink-0" />
+          <CheckCircle2 className="w-5 h-5 text-[#F28C45] shrink-0" />
           <span className="text-xs sm:text-sm font-semibold">{toastMessage}</span>
           <button
             type="button"
@@ -295,11 +291,11 @@ export default function App() {
           aria-modal="true"
           aria-label={content.consultation.title}
           onClick={() => setConsultationModalOpen(false)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#0B1120]/65 backdrop-blur-xs"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#060F26]/65 backdrop-blur-xs"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#0B1120] border border-[#14285C]/15 dark:border-slate-800 p-5 sm:p-8 shadow-2xl"
+            className="w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#060F26] border border-[#102D69]/15 dark:border-slate-800 p-5 sm:p-8 shadow-2xl"
           >
             <ConsultationScheduler
               content={content}
