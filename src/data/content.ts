@@ -1021,63 +1021,63 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         title: 'MMag. Martin Knopper · Steuerberatung Graz',
         description:
           'Volldigitale Steuerberatung in Graz für Kunst, Kultur, Ärztinnen, Selbständige und internationale Fälle. Erstgespräch online anfragen.',
-        image: '/images/knopper-kodex-portrait.jpg',
+        image: 'images/knopper-kodex-portrait.jpg',
         imageAlt: 'MMag. Martin Knopper · Steuerberater, Jurist und Betriebswirt in Graz',
       },
       services: {
         title: 'Leistungen · Martin Knopper Steuerberatung',
         description:
           'Steuerberatung für Einzelunternehmen, Kunst und Kultur, Gesundheitsberufe, Immobilien sowie RSUs und Stock Options in Österreich.',
-        image: '/images/knopper-blazer-portrait.jpg',
+        image: 'images/knopper-blazer-portrait.jpg',
         imageAlt: 'Beratungsschwerpunkte der Steuerkanzlei MMag. Martin Knopper in Graz',
       },
       'art-vat': {
         title: 'Kunstverkauf ins Ausland & USt · Knopper',
         description:
           'Praxisleitfaden für bildende Künstler:innen: EU-Lieferungen (B2B/B2C), Drittland-Exporte und 13 % bzw. 0 % Umsatzsteuer kompakt erklärt.',
-        image: '/images/art-gallery-export.jpg',
+        image: 'images/art-gallery-export.jpg',
         imageAlt: 'Umsatzsteuer-Leitfaden für Kunstverkäufe ins Ausland',
       },
       experience: {
         title: '28 Jahre Erfahrung · Martin Knopper Graz',
         description:
           'Steuerberater, Jurist und Betriebswirt: 28 Jahre Praxis in öffentlicher Verwaltung, Großkanzlei und Musik. Recht & Wirtschaft vereint.',
-        image: '/images/knopper-piano-childhood.jpg',
+        image: 'images/knopper-piano-childhood.jpg',
         imageAlt: 'MMag. Martin Knopper — 28 Jahre Erfahrung zwischen Verwaltung, Kanzlei und Musik',
       },
       testimonials: {
         title: 'Klientenstimmen · Martin Knopper Graz',
         description:
           'Erfahrungsberichte von Künstler:innen, Ärzt:innen, Einzelunternehmen und RSU-Mandant:innen über die Zusammenarbeit mit MMag. Martin Knopper.',
-        image: '/images/knopper-blazer-portrait.jpg',
+        image: 'images/knopper-blazer-portrait.jpg',
         imageAlt: 'Mandantenbewertungen und Erfahrungsberichte zur Kanzlei MMag. Martin Knopper',
       },
       iurio: {
         title: 'IURIO Klientenportal · Martin Knopper Graz',
         description:
           'Sicher und übersichtlich zusammenarbeiten über IURIO: verschlüsselter Belegaustausch, grüner Punkt für Neues und Aufgabenstatus.',
-        image: '/images/iurio-workspace-preview.jpg',
+        image: 'images/iurio-workspace-preview.jpg',
         imageAlt: 'Digitales Klientenportal IURIO für verschlüsselte Zusammenarbeit',
       },
       fees: {
         title: 'Honorare & Erstgespräch · Martin Knopper',
         description:
           'Klare Honorarstruktur: € 185 pro 30 Min. Einzelberatung, Erstgespräch bei Mandat honorarfrei und Richtwert 2–3 % vom Netto-Umsatz.',
-        image: '/images/knopper-kodex-portrait.jpg',
+        image: 'images/knopper-kodex-portrait.jpg',
         imageAlt: 'Transparente Honorare bei Steuerberatung MMag. Martin Knopper',
       },
       faq: {
         title: 'Häufige Fragen (FAQ) · Martin Knopper Graz',
         description:
           'Antworten zu Erstgespräch, Honoraren, Kunst-Umsatzsteuer, RSUs, IURIO-Datenschutz und Kanzleiwechsel bei MMag. Martin Knopper.',
-        image: '/images/knopper-kodex-portrait.jpg',
+        image: 'images/knopper-kodex-portrait.jpg',
         imageAlt: 'Häufige Fragen zur Steuerberatung MMag. Martin Knopper in Graz',
       },
       consultation: {
         title: 'Erstgespräch anfragen · Martin Knopper Graz',
         description:
           'Vereinbaren Sie ein Erstgespräch vor Ort in Graz oder per Videocall inklusive Google-Kalender-Synchronisation und .ics-Einladung.',
-        image: '/images/knopper-blazer-portrait.jpg',
+        image: 'images/knopper-blazer-portrait.jpg',
         imageAlt: 'Erstgespräch bei MMag. Martin Knopper anfragen',
       },
     },
@@ -1786,63 +1786,63 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         title: 'MMag. Martin Knopper · Tax Advisory Graz',
         description:
           'Fully digital Austrian tax advisory for artists, medical practices, sole proprietors, and cross-border cases. Request a consultation.',
-        image: '/images/knopper-kodex-portrait.jpg',
+        image: 'images/knopper-kodex-portrait.jpg',
         imageAlt: 'MMag. Martin Knopper · Tax Advisor, Lawyer and Business Economist in Graz',
       },
       services: {
         title: 'Services · Martin Knopper Tax Advisory Graz',
         description:
           'Tax advisory for sole proprietors, visual artists, healthcare professionals, real estate, RSUs, and international cases in Austria.',
-        image: '/images/knopper-blazer-portrait.jpg',
+        image: 'images/knopper-blazer-portrait.jpg',
         imageAlt: 'Core tax advisory services by MMag. Martin Knopper in Graz, Austria',
       },
       'art-vat': {
         title: 'Cross-Border Art & VAT Guide · Knopper',
         description:
           'Practical VAT guide for Austrian artists selling across EU B2B, EU B2C, and non-EU exports, including the € 55,000 threshold and 13% rate.',
-        image: '/images/art-gallery-export.jpg',
+        image: 'images/art-gallery-export.jpg',
         imageAlt: 'Cross-border art sales and Austrian VAT guide for visual artists',
       },
       experience: {
         title: '28 Years Experience · Martin Knopper Graz',
         description:
           'Tax advisor, lawyer, and economist combining 28 years in Austrian public administration, advisory, and music into one practice.',
-        image: '/images/knopper-piano-childhood.jpg',
+        image: 'images/knopper-piano-childhood.jpg',
         imageAlt: 'MMag. Martin Knopper — 28 years spanning public administration, tax law and music',
       },
       testimonials: {
         title: 'Client Reviews · Martin Knopper Graz',
         description:
           'Read anonymized client reviews from visual artists, private physicians, sole proprietors, and international RSU taxpayers in Austria.',
-        image: '/images/knopper-blazer-portrait.jpg',
+        image: 'images/knopper-blazer-portrait.jpg',
         imageAlt: 'Client testimonials and credibility reviews for MMag. Martin Knopper Tax Advisory',
       },
       iurio: {
         title: 'IURIO Digital Portal · Martin Knopper Graz',
         description:
           'Collaborate securely with IURIO in Austria: encrypted document exchange, green dot tracking for updates, and clear task checklists.',
-        image: '/images/iurio-workspace-preview.jpg',
+        image: 'images/iurio-workspace-preview.jpg',
         imageAlt: 'IURIO secure digital collaboration portal preview',
       },
       fees: {
         title: 'Fee Schedule · Martin Knopper Tax Advisory',
         description:
           'Transparent fee framework: € 185 per 30 min advisory, free initial consultation upon mandate, and 2–3% annual net revenue guidance.',
-        image: '/images/knopper-kodex-portrait.jpg',
+        image: 'images/knopper-kodex-portrait.jpg',
         imageAlt: 'Transparent fee framework at MMag. Martin Knopper Tax Advisory',
       },
       faq: {
         title: 'FAQ · Martin Knopper Tax Advisory Graz',
         description:
           'Answers to common Austrian tax questions on initial consultation fees, cross-border art VAT, RSUs, IURIO privacy, and switching advisors.',
-        image: '/images/knopper-kodex-portrait.jpg',
+        image: 'images/knopper-kodex-portrait.jpg',
         imageAlt: 'Frequently asked tax advisory questions — MMag. Martin Knopper Graz',
       },
       consultation: {
         title: 'Request Consultation · Martin Knopper Graz',
         description:
           'Schedule an initial consultation in person or via encrypted video call with Google Calendar availability sync or instant .ics invite.',
-        image: '/images/knopper-blazer-portrait.jpg',
+        image: 'images/knopper-blazer-portrait.jpg',
         imageAlt: 'Request an initial consultation with MMag. Martin Knopper',
       },
     },

@@ -30,7 +30,7 @@ export function IurioSection({ content }: IurioSectionProps) {
 
           <div className="lg:col-span-6">
             <EditorialImage
-              src="/images/iurio-workspace-preview.jpg"
+              src="images/iurio-workspace-preview.jpg"
               alt={content.iurio.workspaceCaption}
               caption={content.iurio.workspaceCaption}
               className="h-full min-h-[260px] max-h-[340px]"

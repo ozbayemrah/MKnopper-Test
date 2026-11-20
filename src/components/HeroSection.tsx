@@ -144,7 +144,7 @@ export function HeroSection({
 
           <div className="lg:col-span-5">
             <EditorialImage
-              src="/images/knopper-kodex-portrait.jpg"
+              src="images/knopper-kodex-portrait.jpg"
               alt={content.hero.portraitCaption}
               caption={content.hero.portraitCaption}
               subCaption={content.hero.portraitSub}

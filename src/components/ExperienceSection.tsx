@@ -275,7 +275,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
             {/* Childhood Piano Photograph from Client PDF */}
             <div className="lg:col-span-3">
               <EditorialImage
-                src="/images/knopper-piano-childhood.jpg"
+                src="images/knopper-piano-childhood.jpg"
                 alt={content.experience.music.pianoAlt}
                 caption={content.experience.music.pianoCaption}
                 className="aspect-[3/4] max-w-[240px] mx-auto lg:max-w-none"

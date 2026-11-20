@@ -117,7 +117,7 @@ export function updateDocumentSeo(
               ? 'MMag. Martin Knopper · Steuerberatung'
               : 'MMag. Martin Knopper · Tax Advisory',
           url: baseUrl,
-          image: `${window.location.origin}/images/knopper-kodex-portrait.jpg`,
+          image: `${new URL(import.meta.env.BASE_URL, window.location.href).href}images/knopper-kodex-portrait.jpg`,
           telephone: '+43 316 38 60 97',
           email: 'office@knopper-stb.at',
           priceRange: '€ 185 / 30 min',

@@ -58,7 +58,7 @@ export function SlidingContactDrawer({
               <div className="flex items-start justify-between gap-4 pb-5 mb-6 border-b border-[#14285C]/10 dark:border-slate-800">
                 <div className="flex items-center gap-3.5">
                   <img
-                    src="/images/knopper-blazer-portrait.jpg"
+                    src="images/knopper-blazer-portrait.jpg"
                     alt={content.meta.advisorTitle}
                     className="w-14 h-14 rounded-full object-cover object-top border-2 border-[#E86404] dark:border-[#F0781E] shrink-0"
                   />

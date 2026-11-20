@@ -59,7 +59,7 @@ export function ArtVatSection({ content }: ArtVatSectionProps) {
 
           <div className="lg:col-span-5">
             <EditorialImage
-              src="/images/art-gallery-export.jpg"
+              src="images/art-gallery-export.jpg"
               alt={content.artVat.imageCaption}
               caption={content.artVat.imageCaption}
               className="h-full min-h-[280px]"
