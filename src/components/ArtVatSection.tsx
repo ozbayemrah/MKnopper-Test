@@ -59,11 +59,12 @@ export function ArtVatSection({ content }: ArtVatSectionProps) {
           </div>
 
           <div className="lg:col-span-5">
+            {/* Cover of the client's own deck "Kunst über Grenzen" (replaces an AI-generated photo) */}
             <EditorialImage
-              src="images/art-gallery-export.jpg"
+              src="images/kunst-ueber-grenzen-cover.jpg"
               alt={content.artVat.imageCaption}
-              caption={content.artVat.imageCaption}
-              className="h-full min-h-[280px]"
+              className="max-w-md mx-auto lg:max-w-none"
+              imgClassName="h-auto object-contain"
             />
           </div>
         </div>

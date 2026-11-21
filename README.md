@@ -71,7 +71,7 @@ src/
   services/googleCalendar.ts  optional Google free/busy + event creation
   utils/icsGenerator.ts       .ics download
 public/brand/                 client logo (light/dark)
-public/images/                client photos
+public/images/                client photos (incl. the "Kunst über Grenzen" deck cover)
 ```
 
 ## Known open points

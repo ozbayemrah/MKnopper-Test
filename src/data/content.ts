@@ -444,7 +444,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       title: 'Was beim Kunstverkauf ins Ausland umsatzsteuerlich gilt',
       intro:
         'Drei Fragen entscheiden vor jedem Verkauf ins Ausland: An wen geht das Werk? Wohin wird es geliefert? Und sind alle Nachweise vorhanden?',
-      imageCaption: 'Grenzüberschreitender Werkversand · EU & Drittland',
+      imageCaption: 'Kunst über Grenzen · Was beim Verkauf ins Ausland umsatzsteuerlich gilt',
       baselineHeading: 'Zwei Zahlen vorweg',
       baselines: [
         {
@@ -1099,7 +1099,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         title: 'Kunstverkauf ins Ausland & USt · Knopper',
         description:
           'Praxisleitfaden für bildende Künstler:innen: EU-Lieferungen (B2B/B2C), Drittland-Exporte und 13 % bzw. 0 % Umsatzsteuer kompakt erklärt.',
-        image: 'images/art-gallery-export.jpg',
+        image: 'images/kunst-ueber-grenzen-cover.jpg',
         imageAlt: 'Umsatzsteuer-Leitfaden für Kunstverkäufe ins Ausland',
       },
       experience: {
@@ -1247,7 +1247,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       title: 'VAT rules when selling artwork abroad from Austria',
       intro:
         'Three questions govern every cross-border art sale: Who is receiving the artwork? Where is it shipped? And are all required proofs on file?',
-      imageCaption: 'Cross-border art logistics · EU & Non-EU exports',
+      imageCaption: 'Art across borders · What applies to VAT when selling abroad',
       baselineHeading: 'Two key figures upfront',
       baselines: [
         {
@@ -1902,7 +1902,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         title: 'Cross-Border Art & VAT Guide · Knopper',
         description:
           'Practical VAT guide for Austrian artists selling across EU B2B, EU B2C, and non-EU exports, including the € 55,000 threshold and 13% rate.',
-        image: 'images/art-gallery-export.jpg',
+        image: 'images/kunst-ueber-grenzen-cover.jpg',
         imageAlt: 'Cross-border art sales and Austrian VAT guide for visual artists',
       },
       experience: {
