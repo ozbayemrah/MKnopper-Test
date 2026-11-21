@@ -76,7 +76,7 @@ public/images/                client photos
 
 ## Known open points
 
-The heuristic evaluation and the final report (both on the "Heuristische Evaluation" page in Figma) list what was fixed on 2026-11-21. Two items are still open:
+The heuristic evaluation and the final report (both on the "Heuristic Evaluation" page in Figma) list what was fixed on 2026-11-21. Two items are still open:
 - **Brand elements:** the client's § graphic and lavender cards aren't yet used across the style guide and the site.
 - **FAQ:** an FAQ needs answers the client has approved; the AI-generated one was removed and stays out.
 
