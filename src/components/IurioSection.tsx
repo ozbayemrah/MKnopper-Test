@@ -1,3 +1,4 @@
+import { MobileMore } from './MobileMore';
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { PracticeContent } from '../data/content';
@@ -39,6 +40,7 @@ export function IurioSection({ content }: IurioSectionProps) {
           </div>
         </div>
 
+        <MobileMore moreLabel={content.utility.showMore} lessLabel={content.utility.showLess}>
         {/* 6 IURIO Capabilities */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10">
           {content.iurio.features.map((feat) => (
@@ -73,6 +75,8 @@ export function IurioSection({ content }: IurioSectionProps) {
             ))}
           </ul>
         </div>
+
+        </MobileMore>
 
         {/* 3-Step Onboarding & Daily Collaboration */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

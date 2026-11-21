@@ -18,6 +18,8 @@ export interface PracticeContent {
     ctaShort: string;
   };
   utility: {
+    showMore: string;
+    showLess: string;
     languageLabel: string;
     themeLight: string;
     themeDark: string;
@@ -310,6 +312,8 @@ export interface PracticeContent {
     sectionsTitle: string;
     preferencesTitle: string;
     currentLabel: string;
+    callLabel: string;
+    mailLabel: string;
   };
   footer: {
     tagline: string;
@@ -341,6 +345,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       ctaShort: 'Erstgespräch',
     },
     utility: {
+      showMore: 'Mehr anzeigen',
+      showLess: 'Weniger anzeigen',
       languageLabel: 'Sprache',
       themeLight: 'Hell',
       themeDark: 'Dunkel',
@@ -1019,6 +1025,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       sectionsTitle: 'Bereiche der Kanzlei',
       preferencesTitle: 'Sprache & Darstellung',
       currentLabel: 'Hier sind Sie',
+      callLabel: 'Anrufen',
+      mailLabel: 'E-Mail',
     },
     footer: {
       tagline: 'Recht und Wirtschaft in einem Kopf. Volldigital, ruhig und persönlich.',
@@ -1112,6 +1120,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       ctaShort: 'Consultation',
     },
     utility: {
+      showMore: 'Show more',
+      showLess: 'Show less',
       languageLabel: 'Language',
       themeLight: 'Light',
       themeDark: 'Dark',
@@ -1790,6 +1800,8 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       sectionsTitle: 'Practice Sections',
       preferencesTitle: 'Language & Appearance',
       currentLabel: 'You are here',
+      callLabel: 'Call',
+      mailLabel: 'Email',
     },
     footer: {
       tagline: 'Law and business in one mind. Fully digital, calm, and personal.',

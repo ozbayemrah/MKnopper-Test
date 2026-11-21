@@ -31,7 +31,7 @@ export function HeroSection({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 sm:pb-16 lg:pb-20">
         {/* Workspace Utility Toolbar: Single-line on Mobile & Desktop with truncated office badge + DE/EN + Square Theme Icon */}
-        <div className="flex items-center justify-between gap-2.5 sm:gap-4 flex-nowrap pb-4 mb-6 sm:pb-8 sm:mb-8 border-b border-[#102D69]/10 dark:border-slate-800">
+        <div className="hidden md:flex items-center justify-between gap-2.5 sm:gap-4 flex-nowrap pb-4 mb-6 sm:pb-8 sm:mb-8 border-b border-[#102D69]/10 dark:border-slate-800">
           <div className="min-w-0 flex-1 flex items-center gap-2 text-xs sm:text-sm font-medium text-[#1B1F2B]/80 dark:text-slate-300">
             <span className="hidden sm:inline font-semibold text-[#102D69] dark:text-white shrink-0">
               {content.meta.brandSub}

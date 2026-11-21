@@ -475,6 +475,14 @@ export function ConsultationScheduler({
     setCurrentStep(1);
   };
 
+  const displayDate = selectedDate
+    ? new Intl.DateTimeFormat(locale === 'de' ? 'de-AT' : 'en-GB', {
+        weekday: 'short',
+        day: '2-digit',
+        month: locale === 'de' ? '2-digit' : 'short',
+        year: 'numeric',
+      }).format(new Date(`${selectedDate}T12:00:00`))
+    : '';
   const eventPreview = buildEventDetails();
   const endSlot = addMinutesToTimeStr(activeSlot, 30);
 
@@ -570,7 +578,7 @@ export function ConsultationScheduler({
               {eventPreview.summary}
             </p>
             <p className="font-mono-tabular text-[#B84F05] dark:text-[#F28C45] font-semibold">
-              {selectedDate} · {activeSlot} – {endSlot} (Europe/Vienna)
+              {displayDate} · {activeSlot}–{endSlot}{locale === 'de' ? ' Uhr' : ''}
             </p>
             <p className="text-xs sm:text-sm text-[#1B1F2B] dark:text-slate-300">
               {eventPreview.location}
@@ -1055,7 +1063,7 @@ export function ConsultationScheduler({
               <div className="rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 px-3.5 py-2.5 flex flex-wrap items-center justify-between gap-2">
                 <div className="min-w-0 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
                   <span className="font-mono-tabular font-bold text-[#B84F05] dark:text-[#F28C45]">
-                    {selectedDate} · {activeSlot}
+                    {displayDate} · {activeSlot}{locale === 'de' ? ' Uhr' : ''}
                   </span>
                   <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-slate-500">
                     ·
@@ -1262,15 +1270,7 @@ export function ConsultationScheduler({
                   </button>
 
                   <div className="order-1 sm:order-2 flex flex-col sm:flex-row gap-2.5 flex-1 sm:justify-end">
-                    <button
-                      type="button"
-                      onClick={handleDownloadIcs}
-                      disabled={hasVisibleBlockingErrors}
-                      className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-[#102D69] dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-900 font-semibold text-xs sm:text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <Download className="w-4 h-4 shrink-0" />
-                      <span>{content.consultation.actions.downloadIcs}</span>
-                    </button>
+                    {/* .ics is offered only after the request was sent (confirmation view) */}
 
                     <button
                       type="button"
@@ -1336,7 +1336,7 @@ export function ConsultationScheduler({
                 <dd className="font-mono-tabular font-semibold text-[#B84F05] dark:text-[#F28C45] mt-0.5 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5" />
                   <span>
-                    {selectedDate} · {activeSlot} – {endSlot} (Europe/Vienna)
+                    {displayDate} · {activeSlot}–{endSlot}{locale === 'de' ? ' Uhr' : ''}
                   </span>
                 </dd>
               </div>

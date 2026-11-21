@@ -34,8 +34,8 @@
 }
 
 .font-mono-tabular {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-variant-numeric: tabular-nums;
+  font-family: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
 /* Official Google Sign-In Material Button Styling */

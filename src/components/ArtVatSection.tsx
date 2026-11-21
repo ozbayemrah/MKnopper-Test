@@ -1,3 +1,4 @@
+import { MobileMore } from './MobileMore';
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { PracticeContent } from '../data/content';
@@ -67,6 +68,7 @@ export function ArtVatSection({ content }: ArtVatSectionProps) {
           </div>
         </div>
 
+        <MobileMore moreLabel={content.utility.showMore} lessLabel={content.utility.showLess}>
         {/* Interactive Buyer Scenario Navigator */}
         <div className="rounded-2xl bg-white dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 p-5 sm:p-8 mb-10">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#102D69]/10 dark:border-slate-800">
@@ -191,6 +193,7 @@ export function ArtVatSection({ content }: ArtVatSectionProps) {
             {content.artVat.disclaimer}
           </p>
         </div>
+        </MobileMore>
       </div>
     </section>
   );

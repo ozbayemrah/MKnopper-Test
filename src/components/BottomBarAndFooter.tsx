@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalendarCheck, Moon, Sun, X } from 'lucide-react';
+import { CalendarCheck, Mail, Moon, Phone, Sun, X } from 'lucide-react';
 import { PracticeContent } from '../data/content';
 import { Locale, Theme } from '../types/app';
 import { MartinKnopperLogo } from './BrandMark';
@@ -232,6 +232,22 @@ export function BottomBarAndFooter({
             >
               {content.nav.cta}
             </button>
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <a
+                href="tel:+43316386097"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/15 dark:border-slate-700 text-sm font-semibold text-[#102D69] dark:text-white"
+              >
+                <Phone className="w-4 h-4" aria-hidden="true" />
+                <span>{content.mobileBar.callLabel}</span>
+              </a>
+              <a
+                href="mailto:office@knopper-stb.at"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/15 dark:border-slate-700 text-sm font-semibold text-[#102D69] dark:text-white"
+              >
+                <Mail className="w-4 h-4" aria-hidden="true" />
+                <span>{content.mobileBar.mailLabel}</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

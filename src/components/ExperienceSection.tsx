@@ -1,3 +1,4 @@
+import { MobileMore } from './MobileMore';
 import React, { useState } from 'react';
 import { Music2 } from 'lucide-react';
 import { PracticeContent } from '../data/content';
@@ -68,6 +69,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
           </div>
         </div>
 
+        <MobileMore moreLabel={content.utility.showMore} lessLabel={content.utility.showLess}>
         {/* Three Perspectives Grid (Unboxed typographic lists — Zero-Pill discipline) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
           {/* Card 1: 28 Years + 2 Degrees */}
@@ -284,6 +286,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
             </div>
           </div>
         </div>
+        </MobileMore>
       </div>
     </section>
   );

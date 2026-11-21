@@ -202,16 +202,14 @@ export default function App() {
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 p-5 sm:p-8">
-              <ConsultationScheduler
-                content={content}
-                locale={locale}
-                onNotify={showToast}
-                attachedDocument={attachedDocument}
-                onAttachDocument={setAttachedDocument}
-                onRemoveDocument={() => setAttachedDocument(null)}
-              />
-            </div>
+            <button
+              type="button"
+              onClick={() => setConsultationModalOpen(true)}
+              className="min-h-[48px] inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] font-semibold text-sm sm:text-base transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+            >
+              <CalendarCheck className="w-5 h-5" aria-hidden="true" />
+              <span>{content.nav.cta}</span>
+            </button>
           </div>
         </section>
       </main>
@@ -282,13 +280,14 @@ export default function App() {
       )}
 
       {/* Consultation Modal triggered from TopNav, Hero CTA, Contact Drawer, or Bottom Bar */}
-      {consultationModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
+      {/* Always mounted: closing (X, Escape, backdrop) only hides it, so entries are kept */}
+      <div
+          role={consultationModalOpen ? 'dialog' : undefined}
+          aria-modal={consultationModalOpen ? 'true' : undefined}
           aria-label={content.consultation.title}
+          aria-hidden={!consultationModalOpen}
           onClick={() => setConsultationModalOpen(false)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#060F26]/65 backdrop-blur-xs"
+          className={`fixed inset-0 z-50 items-center justify-center p-3 sm:p-6 bg-[#060F26]/65 backdrop-blur-xs ${consultationModalOpen ? 'flex' : 'hidden'}`}
         >
           <div
             onClick={(e) => e.stopPropagation()}
@@ -306,8 +305,6 @@ export default function App() {
             />
           </div>
         </div>
-      )}
-
     </div>
   );
 }
