@@ -76,8 +76,8 @@ public/images/                client photos
 
 ## Known open points
 
-See the heuristic evaluation page in Figma. The biggest open items are:
-- A backdrop click closes the booking modal and discards entries.
-- The `.ics` download is offered before sending.
-- Dates show in ISO format.
-- The mobile page is still long.
+The heuristic evaluation and the final report (both on the "Heuristische Evaluation" page in Figma) list what was fixed on 2026-11-21. Two items are still open:
+- **Brand elements:** the client's § graphic and lavender cards aren't yet used across the style guide and the site.
+- **FAQ:** an FAQ needs answers the client has approved; the AI-generated one was removed and stays out.
+
+The booking modal stays mounted while closed, so closing it never discards entries. On phones, long sections collapse behind "Mehr anzeigen" (`src/components/MobileMore.tsx`).
