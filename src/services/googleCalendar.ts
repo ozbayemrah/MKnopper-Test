@@ -164,8 +164,8 @@ export async function createGoogleCalendarEvent(
 
   const attendees =
     input.clientEmail && input.clientEmail.includes('@')
-      ? [{ email: input.clientEmail }, { email: 'office@knopper-stb.at' }]
-      : [{ email: 'office@knopper-stb.at' }];
+      ? [{ email: input.clientEmail }]
+      : []; // Prototype: never invite the real office address from the test site.
 
   const res = await fetch(
     'https://www.googleapis.com/calendar/v3/calendars/primary/events',

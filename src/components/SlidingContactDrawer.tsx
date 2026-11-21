@@ -33,7 +33,7 @@ export function SlidingContactDrawer({
         aria-expanded={isOpen}
         aria-label={content.contactDrawer.tabLabel}
         title={content.contactDrawer.tabLabel}
-        className="group fixed right-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12 inline-flex items-center justify-center rounded-l-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] shadow-lg origin-right transition-all duration-200 hover:scale-125 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+        className="group hidden md:inline-flex fixed right-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12 items-center justify-center rounded-l-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] shadow-lg origin-right transition-all duration-200 hover:scale-125 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
       >
         <MessageSquare
           className="w-5 h-5 transition-transform duration-200 group-hover:scale-110"

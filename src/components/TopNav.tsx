@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalendarCheck } from 'lucide-react';
+import { CalendarCheck, Menu } from 'lucide-react';
 import { PracticeContent } from '../data/content';
 import { MartinKnopperLogo } from './BrandMark';
 
@@ -7,9 +7,10 @@ interface TopNavProps {
   content: PracticeContent;
   activeSection: string;
   onOpenConsultation: () => void;
+  onOpenMenu: () => void;
 }
 
-export function TopNav({ content, activeSection, onOpenConsultation }: TopNavProps) {
+export function TopNav({ content, activeSection, onOpenConsultation, onOpenMenu }: TopNavProps) {
   const navLinks = [
     { id: 'services', href: '#services', label: content.nav.services },
     { id: 'art-vat', href: '#art-vat', label: content.nav.artVat },
@@ -64,6 +65,14 @@ export function TopNav({ content, activeSection, onOpenConsultation }: TopNavPro
             <CalendarCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
             <span className="hidden lg:inline">{content.nav.cta}</span>
             <span className="lg:hidden">{content.nav.ctaShort}</span>
+          </button>
+          <button
+            type="button"
+            onClick={onOpenMenu}
+            aria-label={content.mobileBar.menu}
+            className="md:hidden ml-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg border border-[#102D69]/15 dark:border-slate-700 text-[#102D69] dark:text-slate-100 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+          >
+            <Menu className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
       </div>

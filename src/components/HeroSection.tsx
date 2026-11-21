@@ -155,7 +155,7 @@ export function HeroSection({
         </div>
 
         {/* Full-Width 4-Column Marker Strip Below Hero */}
-        <div className="mt-10 lg:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="hidden md:grid mt-10 lg:mt-14 grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {content.hero.keyMarkers.map((marker) => (
             <div
               key={marker.label}

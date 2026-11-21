@@ -275,6 +275,7 @@ export interface PracticeContent {
       openCalendarLink: string;
       downloadIcsAgain: string;
       scheduleAnother: string;
+      prototypeNote: string;
     };
   };
   contactDrawer: {
@@ -308,6 +309,7 @@ export interface PracticeContent {
     sheetTitle: string;
     sectionsTitle: string;
     preferencesTitle: string;
+    currentLabel: string;
   };
   footer: {
     tagline: string;
@@ -971,11 +973,12 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         requestSentBanner:
           'Ihre Anfrage wurde erfolgreich übermittelt — alle Details für Ihren Wunschtermin finden Sie unten.',
         titleSent: 'Vielen Dank! Ihre Anfrage ist eingegangen.',
+        prototypeNote: 'Prototyp: Die Anfrage wird in dieser Testversion nicht versendet.',
         descSent: 'Ich antworte in der Regel innerhalb von ein bis zwei Werktagen. Kommt es zur Zusammenarbeit, ist das Erstgespräch kostenlos.',
         titleGoogle: 'Termin in Ihrem Google Kalender erstellt',
         titleIcs: 'Kalenderdatei (.ics) heruntergeladen',
         descGoogle:
-          'Ihr Terminwunsch wurde in Google Kalender gespeichert und mit office@knopper-stb.at verknüpft. Für vertrauliche Unterlagen erhalten Sie bei Bedarf eine IURIO-Einladung.',
+          'Ihr Terminwunsch wurde in Ihrem Google Kalender gespeichert. Für vertrauliche Unterlagen erhalten Sie bei Bedarf eine IURIO-Einladung.',
         descIcs:
           'Die .ics-Datei enthält alle Termindaten für Ihren Kalender (Apple, Outlook, Thunderbird). Bitte senden Sie vertrauliche Belege erst nach Einladung über IURIO.',
         openCalendarLink: 'In Google Kalender öffnen',
@@ -1015,6 +1018,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       sheetTitle: 'Navigation & Einstellungen',
       sectionsTitle: 'Bereiche der Kanzlei',
       preferencesTitle: 'Sprache & Darstellung',
+      currentLabel: 'Hier sind Sie',
     },
     footer: {
       tagline: 'Recht und Wirtschaft in einem Kopf. Volldigital, ruhig und persönlich.',
@@ -1740,11 +1744,12 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         requestSentBanner:
           'Your consultation request has been sent successfully — your appointment details are confirmed below.',
         titleSent: 'Thank you! Your request has been received.',
+        prototypeNote: 'Prototype: in this test version the request is not sent.',
         descSent: 'I usually reply within one to two working days. If we decide to work together, the initial consultation is free of charge.',
         titleGoogle: 'Appointment created in Google Calendar',
         titleIcs: 'Calendar invitation (.ics) downloaded',
         descGoogle:
-          'Your consultation slot has been added to Google Calendar with office@knopper-stb.at included. For confidential records, you will receive a personal IURIO invitation.',
+          'Your consultation slot has been added to your Google Calendar. For confidential records, you will receive a personal IURIO invitation.',
         descIcs:
           'Your .ics file is ready for Apple Calendar, Outlook, or Thunderbird. Please share confidential receipts only via IURIO once invited.',
         openCalendarLink: 'Open in Google Calendar',
@@ -1784,6 +1789,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       sheetTitle: 'Navigation & Preferences',
       sectionsTitle: 'Practice Sections',
       preferencesTitle: 'Language & Appearance',
+      currentLabel: 'You are here',
     },
     footer: {
       tagline: 'Law and business in one mind. Fully digital, calm, and personal.',

@@ -559,6 +559,9 @@ export function ConsultationScheduler({
                   ? content.consultation.success.descGoogle
                   : content.consultation.success.descIcs}
               </p>
+            <p className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-[#FEF4EC] dark:bg-[#F28C45]/15 px-2.5 py-1 text-xs font-medium text-[#8F3B03] dark:text-[#F6A96F]">
+              {content.consultation.success.prototypeNote}
+            </p>
             </div>
           </div>
 
@@ -1288,6 +1291,9 @@ export function ConsultationScheduler({
                       </span>
                     </button>
                   </div>
+                  <p className="mt-2 text-xs text-[#5E6476] dark:text-slate-400 sm:text-right">
+                    {content.consultation.success.prototypeNote}
+                  </p>
                 </div>
               </div>
             </div>

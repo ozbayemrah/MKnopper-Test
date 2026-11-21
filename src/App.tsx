@@ -14,7 +14,6 @@ import { ArtVatSection } from './components/ArtVatSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { IurioSection } from './components/IurioSection';
 import { FeeScheduleSection } from './components/FeeScheduleSection';
-import { FaqSection } from './components/FaqSection';
 import { ConsultationScheduler } from './components/ConsultationScheduler';
 import { SlidingContactDrawer } from './components/SlidingContactDrawer';
 import { BottomBarAndFooter } from './components/BottomBarAndFooter';
@@ -27,7 +26,6 @@ const OBSERVED_SECTION_IDS = [
   'experience',
   'iurio',
   'fees',
-  'faq',
   'consultation',
 ];
 
@@ -39,14 +37,14 @@ export default function App() {
   });
 
   const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem('knopper_theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-    return window.matchMedia?.('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+    // Always open in light mode. Dark mode only when the visitor switched it on
+    // (new key, so values auto-saved from the old OS-preference default are ignored).
+    const saved = localStorage.getItem('knopper_theme_v2');
+    return saved === 'dark' ? 'dark' : 'light';
   });
 
   const [consultationModalOpen, setConsultationModalOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('top');
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [attachedDocument, setAttachedDocument] = useState<PreCallDocument | null>(null);
@@ -63,7 +61,7 @@ export default function App() {
     } else {
       document.documentElement.classList.remove('dark');
     }
-    localStorage.setItem('knopper_theme', theme);
+    localStorage.setItem('knopper_theme_v2', theme);
   }, [theme]);
 
   // Scroll-Spy via IntersectionObserver for TopNav and Mobile Bottom Bar
@@ -157,6 +155,7 @@ export default function App() {
         content={content}
         activeSection={activeSection}
         onOpenConsultation={() => setConsultationModalOpen(true)}
+        onOpenMenu={() => setMobileMenuOpen(true)}
       />
 
       <main>
@@ -179,10 +178,6 @@ export default function App() {
 
         <FeeScheduleSection content={content} />
 
-        <FaqSection
-          content={content}
-          onOpenConsultation={() => setConsultationModalOpen(true)}
-        />
 
         {/* Inline Consultation Section at the natural conversion end of the flow */}
         <section
@@ -231,6 +226,8 @@ export default function App() {
         locale={locale}
         theme={theme}
         activeSection={activeSection}
+        mobileMenuOpen={mobileMenuOpen}
+        onCloseMobileMenu={() => setMobileMenuOpen(false)}
         onChangeLocale={setLocale}
         onToggleTheme={toggleTheme}
         onOpenConsultation={() => setConsultationModalOpen(true)}
@@ -252,7 +249,7 @@ export default function App() {
         title={content.utility.backToTop}
         aria-hidden={!showBackToTop}
         tabIndex={showBackToTop ? 0 : -1}
-        className={`fixed bottom-20 md:bottom-[72px] right-4 sm:right-6 z-30 h-11 px-3.5 inline-flex items-center gap-2 rounded-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#0B1734] dark:hover:bg-[#F28C45] text-white dark:text-white dark:hover:text-[#060F26] border border-[#102D69]/20 dark:border-slate-700 shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608] ${
+        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-30 h-11 px-3.5 inline-flex items-center gap-2 rounded-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#0B1734] dark:hover:bg-[#F28C45] text-white dark:text-white dark:hover:text-[#060F26] border border-[#102D69]/20 dark:border-slate-700 shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608] ${
           showBackToTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-3 pointer-events-none'
@@ -269,7 +266,7 @@ export default function App() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-20 right-4 sm:right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-xl bg-[#102D69] dark:bg-[#193270] text-white border border-[#EC6608]/50 shadow-xl max-w-sm"
+          className="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-xl bg-[#102D69] dark:bg-[#193270] text-white border border-[#EC6608]/50 shadow-xl max-w-sm"
         >
           <CheckCircle2 className="w-5 h-5 text-[#F28C45] shrink-0" />
           <span className="text-xs sm:text-sm font-semibold">{toastMessage}</span>

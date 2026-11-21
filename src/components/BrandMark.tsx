@@ -40,9 +40,9 @@ interface MartinKnopperLogoProps {
 }
 
 /**
- * Custom lockup matching Logo_Martin_Knopper_Steuerberatung_print.pdf:
- * Lowercase Playfair Display wordmark in brand orange with the circular § emblem
- * replacing the dot on the letter "i" in "martin".
+ * The client's original logo (Logo Martin Knopper Steuerberatung.svg), unchanged
+ * except for a cropped viewBox. Wordmark stays in the original brand orange #EC6608.
+ * The dark variant only swaps the navy "steuerberatung" line to white.
  */
 export function MartinKnopperLogo({
   variant = 'compact',
@@ -50,46 +50,18 @@ export function MartinKnopperLogo({
   invertOnDarkBg = false,
   className = '',
 }: MartinKnopperLogoProps) {
-  const renderDotlessIWithSeal = (sealSizeClass: string, topOffsetClass: string) => (
-    <span className="relative inline-block">
-      <span>ı</span>
-      <ParagraphSeal
-        className={`absolute left-1/2 -translate-x-1/2 ${topOffsetClass} ${sealSizeClass} text-[#B84F05] dark:text-[#F28C45]`}
-      />
-    </span>
-  );
-
-  if (variant === 'compact') {
+  const size = variant === 'compact' ? 'h-11 sm:h-12' : 'h-16 sm:h-20';
+  const alt = `martin knopper ${subLabel}`;
+  if (invertOnDarkBg) {
     return (
-      <span
-        className={`font-wordmark inline-flex items-baseline gap-1.5 font-bold tracking-tight text-[#B84F05] dark:text-[#F28C45] leading-none select-none ${className}`}
-      >
-        <span>
-          mart{renderDotlessIWithSeal('w-2.5 h-2.5', '-top-[0.18em]')}n
-        </span>
-        <span>knopper</span>
-      </span>
+      <img src="brand/logo-mk-dark.svg" alt={alt} className={`${size} w-auto select-none ${className}`} />
     );
   }
-
   return (
-    <div className={`inline-flex flex-col items-center leading-none select-none ${className}`}>
-      <div className="font-wordmark text-2xl sm:text-3xl font-bold tracking-tight text-[#B84F05] dark:text-[#F28C45] flex flex-col items-center">
-        <span className="leading-[0.88]">
-          mart{renderDotlessIWithSeal('w-3 h-3', '-top-[0.22em]')}n
-        </span>
-        <span className="leading-[0.94]">knopper</span>
-      </div>
-      <span
-        className={`mt-1.5 text-[11px] font-semibold tracking-[0.08em] ${
-          invertOnDarkBg
-            ? 'text-slate-200'
-            : 'text-[#102D69] dark:text-slate-200'
-        }`}
-      >
-        {subLabel}
-      </span>
-    </div>
+    <span className={`inline-flex select-none ${className}`}>
+      <img src="brand/logo-mk.svg" alt={alt} className={`${size} w-auto dark:hidden`} />
+      <img src="brand/logo-mk-dark.svg" alt={alt} className={`${size} w-auto hidden dark:block`} />
+    </span>
   );
 }
 
