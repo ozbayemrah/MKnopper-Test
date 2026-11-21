@@ -95,7 +95,7 @@ export function EditorialImage({
 
   return (
     <figure
-      className={`relative overflow-hidden rounded-2xl border border-[#102D69]/12 dark:border-slate-800 bg-[#F3F5FA] dark:bg-[#0B1734] ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-[#102D69]/12 dark:border-neutral-800 bg-[#F3F5FA] dark:bg-[#1C1C1E] ${className}`}
     >
       {!failed ? (
         <img
@@ -106,9 +106,9 @@ export function EditorialImage({
           className={`w-full h-full object-cover ${imgClassName}`}
         />
       ) : (
-        <div className="w-full h-full min-h-[260px] flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-[#F3F5FA] via-white to-[#EC6608]/10 dark:from-[#0B1734] dark:via-[#060F26] dark:to-[#F28C45]/15">
+        <div className="w-full h-full min-h-[260px] flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-[#F3F5FA] via-white to-[#EC6608]/10 dark:from-[#1C1C1E] dark:via-[#121212] dark:to-[#F28C45]/15">
           <Scale className="w-10 h-10 text-[#B84F05] dark:text-[#F28C45] mb-3" />
-          <p className="text-sm font-semibold text-[#102D69] dark:text-slate-100">
+          <p className="text-sm font-semibold text-[#102D69] dark:text-neutral-100">
             {alt}
           </p>
         </div>

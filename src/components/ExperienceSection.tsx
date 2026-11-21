@@ -17,7 +17,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
   return (
     <section
       id="experience"
-      className="py-14 sm:py-20 border-b border-[#102D69]/10 dark:border-slate-800/80"
+      className="py-14 sm:py-20 border-b border-[#102D69]/10 dark:border-neutral-800/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -28,7 +28,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#102D69] dark:text-white tracking-tight mb-4">
             {content.experience.title}
           </h2>
-          <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-neutral-300 leading-relaxed">
             {content.experience.intro}
           </p>
         </div>
@@ -36,11 +36,11 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
         {/* Career Timeline Bar */}
         <div className="mb-10">
           <div className="flex flex-wrap items-center gap-6 text-xs font-semibold mb-3">
-            <span className="inline-flex items-center gap-2 text-[#102D69] dark:text-slate-200">
-              <span className="w-3 h-3 rounded-xs bg-[#102D69] dark:bg-[#2a4a9e]" aria-hidden="true" />
+            <span className="inline-flex items-center gap-2 text-[#102D69] dark:text-neutral-200">
+              <span className="w-3 h-3 rounded-xs bg-[#102D69] dark:bg-[#48484A]" aria-hidden="true" />
               {content.experience.timelineLegend.publicAdmin}
             </span>
-            <span className="inline-flex items-center gap-2 text-[#102D69] dark:text-slate-200">
+            <span className="inline-flex items-center gap-2 text-[#102D69] dark:text-neutral-200">
               <span className="w-3 h-3 rounded-xs bg-[#B84F05] dark:bg-[#F28C45]" aria-hidden="true" />
               {content.experience.timelineLegend.taxAdvisory}
             </span>
@@ -54,8 +54,8 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
                   key={segment.period}
                   className={`rounded-xl px-4 py-3.5 border ${
                     isPublic
-                      ? 'bg-[#102D69] text-white border-[#102D69] dark:bg-[#193270] dark:border-[#2a4a9e]'
-                      : 'bg-[#B84F05] text-white border-[#EC6608] dark:bg-[#F28C45] dark:text-[#060F26] dark:border-[#F28C45]'
+                      ? 'bg-[#102D69] text-white border-[#102D69] dark:bg-[#2C2C2E] dark:border-[#48484A]'
+                      : 'bg-[#B84F05] text-white border-[#EC6608] dark:bg-[#F28C45] dark:text-[#121212] dark:border-[#F28C45]'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-2 text-xs font-mono-tabular opacity-90">
@@ -73,17 +73,17 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
         {/* Three Perspectives Grid (Unboxed typographic lists — Zero-Pill discipline) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
           {/* Card 1: 28 Years + 2 Degrees */}
-          <div className="lg:col-span-4 rounded-2xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/10 dark:border-slate-800 p-6 sm:p-7 flex flex-col justify-between">
+          <div className="lg:col-span-4 rounded-2xl bg-[#F3F5FA] dark:bg-[#1C1C1E] border border-[#102D69]/10 dark:border-neutral-800 p-6 sm:p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-baseline gap-2.5 mb-1">
                 <span className="font-mono-tabular text-4xl sm:text-5xl font-extrabold text-[#102D69] dark:text-white">
                   {content.experience.summaryCard.yearsNumber}
                 </span>
-                <span className="text-lg font-bold text-[#102D69] dark:text-slate-200">
+                <span className="text-lg font-bold text-[#102D69] dark:text-neutral-200">
                   {content.experience.summaryCard.yearsUnit}
                 </span>
               </div>
-              <p className="text-sm font-semibold text-[#1B1F2B] dark:text-slate-300 pb-6 mb-6 border-b border-[#102D69]/12 dark:border-slate-700">
+              <p className="text-sm font-semibold text-[#1B1F2B] dark:text-neutral-300 pb-6 mb-6 border-b border-[#102D69]/12 dark:border-neutral-700">
                 {content.experience.summaryCard.yearsDesc}
               </p>
 
@@ -95,18 +95,18 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
                   {content.experience.summaryCard.degreesTitle}
                 </span>
               </div>
-              <p className="text-sm font-semibold text-[#102D69] dark:text-slate-200">
+              <p className="text-sm font-semibold text-[#102D69] dark:text-neutral-200">
                 {content.experience.summaryCard.degreesList.join(' · ')}
               </p>
             </div>
 
-            <p className="mt-8 pt-4 border-t border-[#102D69]/10 dark:border-slate-800 text-sm font-semibold text-[#B84F05] dark:text-[#F28C45]">
+            <p className="mt-8 pt-4 border-t border-[#102D69]/10 dark:border-neutral-800 text-sm font-semibold text-[#B84F05] dark:text-[#F28C45]">
               {content.experience.summaryCard.motto}
             </p>
           </div>
 
           {/* Card 2: 15 Years Public Administration & NPO */}
-          <div className="lg:col-span-4 rounded-2xl bg-[#102D69] dark:bg-[#162856] text-white border border-[#102D69] dark:border-slate-700 p-6 sm:p-7">
+          <div className="lg:col-span-4 rounded-2xl bg-[#102D69] dark:bg-[#2C2C2E] text-white border border-[#102D69] dark:border-neutral-700 p-6 sm:p-7">
             <div className="flex items-baseline gap-2.5 mb-1">
               <span className="font-mono-tabular text-4xl sm:text-5xl font-extrabold text-white">
                 {content.experience.publicCard.yearsNumber}
@@ -128,7 +128,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
           </div>
 
           {/* Card 3: 13 Years Tax Advisory */}
-          <div className="lg:col-span-4 rounded-2xl bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] border border-[#EC6608] dark:border-[#F28C45] p-6 sm:p-7">
+          <div className="lg:col-span-4 rounded-2xl bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#121212] border border-[#EC6608] dark:border-[#F28C45] p-6 sm:p-7">
             <div className="flex items-baseline gap-2.5 mb-1">
               <span className="font-mono-tabular text-4xl sm:text-5xl font-extrabold">
                 {content.experience.taxCard.yearsNumber}
@@ -153,7 +153,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
                   {content.experience.taxCard.focusAreas.join(' · ')}
                 </p>
               </div>
-              <div className="pt-3 border-t border-white/25 dark:border-[#060F26]/20">
+              <div className="pt-3 border-t border-white/25 dark:border-[#121212]/20">
                 <p className="text-xs font-bold tracking-[0.14em] uppercase opacity-85 mb-1.5">
                   {content.experience.taxCard.clientsLabel}
                 </p>
@@ -166,7 +166,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
         </div>
 
         {/* Interactive Musical Staff + Authentic Childhood Piano Photo */}
-        <div className="rounded-2xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 p-6 sm:p-8">
+        <div className="rounded-2xl bg-[#F3F5FA] dark:bg-[#1C1C1E] border border-[#102D69]/12 dark:border-neutral-800 p-6 sm:p-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
             <div>
               <div className="inline-flex items-center gap-2 text-[#B84F05] dark:text-[#F28C45] text-xs font-bold tracking-[0.16em] uppercase mb-2">
@@ -176,11 +176,11 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
               <h3 className="text-xl sm:text-2xl font-bold text-[#102D69] dark:text-white">
                 {content.experience.music.title}
               </h3>
-              <p className="text-sm text-[#1B1F2B] dark:text-slate-300 mt-1">
+              <p className="text-sm text-[#1B1F2B] dark:text-neutral-300 mt-1">
                 {content.experience.music.subtitle}
               </p>
             </div>
-            <p className="text-xs sm:text-sm font-medium text-[#102D69]/80 dark:text-slate-300">
+            <p className="text-xs sm:text-sm font-medium text-[#102D69]/80 dark:text-neutral-300">
               {content.experience.music.motifNote}
             </p>
           </div>
@@ -195,7 +195,7 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
                     {[0, 1, 2, 3, 4].map((line) => (
                       <div
                         key={line}
-                        className="w-full h-px bg-[#102D69]/20 dark:bg-slate-600/60"
+                        className="w-full h-px bg-[#102D69]/20 dark:bg-neutral-600/60"
                       />
                     ))}
 
@@ -219,8 +219,8 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
                               <span
                                 className={`flex items-center justify-center w-8 h-8 rounded-full font-mono-tabular text-xs font-bold border-2 transition-colors ${
                                   isSelected
-                                    ? 'bg-[#B84F05] dark:bg-[#F28C45] border-[#102D69] dark:border-white text-white dark:text-[#060F26]'
-                                    : 'bg-white dark:bg-[#060F26] border-[#102D69] dark:border-slate-400 text-[#102D69] dark:text-slate-100'
+                                    ? 'bg-[#B84F05] dark:bg-[#F28C45] border-[#102D69] dark:border-white text-white dark:text-[#121212]'
+                                    : 'bg-white dark:bg-[#121212] border-[#102D69] dark:border-neutral-400 text-[#102D69] dark:text-neutral-100'
                                 }`}
                               >
                                 {note.pitch}
@@ -243,8 +243,8 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
                           onClick={() => setSelectedNoteIdx(idx)}
                           className={`text-center p-2 rounded-lg transition-colors cursor-pointer ${
                             isSelected
-                              ? 'bg-white dark:bg-[#060F26] text-[#102D69] dark:text-white border border-[#EC6608]/40'
-                              : 'text-[#1B1F2B]/80 dark:text-slate-400 hover:text-[#102D69] dark:hover:text-slate-200'
+                              ? 'bg-white dark:bg-[#121212] text-[#102D69] dark:text-white border border-[#EC6608]/40'
+                              : 'text-[#1B1F2B]/80 dark:text-neutral-400 hover:text-[#102D69] dark:hover:text-neutral-200'
                           }`}
                         >
                           <span className="block text-xs font-bold leading-tight">
@@ -261,14 +261,14 @@ export function ExperienceSection({ content }: ExperienceSectionProps) {
               </div>
 
               {/* Active Musical Station Detail */}
-              <div className="mt-5 pt-4 border-t border-[#102D69]/10 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <p className="text-sm font-medium text-[#102D69] dark:text-slate-100">
+              <div className="mt-5 pt-4 border-t border-[#102D69]/10 dark:border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <p className="text-sm font-medium text-[#102D69] dark:text-neutral-100">
                   <span className="font-bold text-[#B84F05] dark:text-[#F28C45] mr-2">
                     {activeNote.title} ({activeNote.span}):
                   </span>
                   {activeNote.detail}
                 </p>
-                <span className="text-xs text-[#1B1F2B]/70 dark:text-slate-400 shrink-0">
+                <span className="text-xs text-[#1B1F2B]/70 dark:text-neutral-400 shrink-0">
                   {content.experience.music.caption}
                 </span>
               </div>

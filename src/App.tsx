@@ -149,7 +149,7 @@ export default function App() {
   }, [locale, activeSection, consultationModalOpen, content]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#060F26] text-[#1B1F2B] dark:text-slate-200 transition-colors">
+    <div className="min-h-screen bg-white dark:bg-[#121212] text-[#1B1F2B] dark:text-neutral-200 transition-colors">
       <TopNav
         content={content}
         activeSection={activeSection}
@@ -181,7 +181,7 @@ export default function App() {
         {/* Inline Consultation Section at the natural conversion end of the flow */}
         <section
           id="consultation"
-          className="py-14 sm:py-20 bg-[#FAFBFD] dark:bg-[#0E1526]"
+          className="py-14 sm:py-20 bg-[#FAFBFD] dark:bg-[#161618]"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-10 flex items-start gap-4">
@@ -195,7 +195,7 @@ export default function App() {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#102D69] dark:text-white tracking-tight mb-3">
                   {content.consultation.title}
                 </h2>
-                <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-neutral-300 leading-relaxed">
                   {content.consultation.subtitle}
                 </p>
               </div>
@@ -204,7 +204,7 @@ export default function App() {
             <button
               type="button"
               onClick={() => setConsultationModalOpen(true)}
-              className="min-h-[48px] inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] font-semibold text-sm sm:text-base transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+              className="min-h-[48px] inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#121212] font-semibold text-sm sm:text-base transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
             >
               <CalendarCheck className="w-5 h-5" aria-hidden="true" />
               <span>{content.nav.cta}</span>
@@ -246,7 +246,7 @@ export default function App() {
         title={content.utility.backToTop}
         aria-hidden={!showBackToTop}
         tabIndex={showBackToTop ? 0 : -1}
-        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-30 h-11 px-3.5 inline-flex items-center gap-2 rounded-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#0B1734] dark:hover:bg-[#F28C45] text-white dark:text-white dark:hover:text-[#060F26] border border-[#102D69]/20 dark:border-slate-700 shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608] ${
+        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-30 h-11 px-3.5 inline-flex items-center gap-2 rounded-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#1C1C1E] dark:hover:bg-[#F28C45] text-white dark:text-white dark:hover:text-[#121212] border border-[#102D69]/20 dark:border-neutral-700 shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608] ${
           showBackToTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-3 pointer-events-none'
@@ -263,7 +263,7 @@ export default function App() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-xl bg-[#102D69] dark:bg-[#193270] text-white border border-[#EC6608]/50 shadow-xl max-w-sm"
+          className="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 z-50 flex items-center gap-3 px-4 py-3 rounded-xl bg-[#102D69] dark:bg-[#2C2C2E] text-white border border-[#EC6608]/50 shadow-xl max-w-sm"
         >
           <CheckCircle2 className="w-5 h-5 text-[#F28C45] shrink-0" />
           <span className="text-xs sm:text-sm font-semibold">{toastMessage}</span>
@@ -286,11 +286,11 @@ export default function App() {
           aria-label={content.consultation.title}
           aria-hidden={!consultationModalOpen}
           onClick={() => setConsultationModalOpen(false)}
-          className={`fixed inset-0 z-50 items-center justify-center p-3 sm:p-6 bg-[#060F26]/65 backdrop-blur-xs ${consultationModalOpen ? 'flex' : 'hidden'}`}
+          className={`fixed inset-0 z-50 items-center justify-center p-3 sm:p-6 bg-[#060F26]/65 dark:bg-black/65 backdrop-blur-xs ${consultationModalOpen ? 'flex' : 'hidden'}`}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#060F26] border border-[#102D69]/15 dark:border-slate-800 p-5 sm:p-8 shadow-2xl"
+            className="w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#121212] border border-[#102D69]/15 dark:border-neutral-800 p-5 sm:p-8 shadow-2xl"
           >
             <ConsultationScheduler
               content={content}

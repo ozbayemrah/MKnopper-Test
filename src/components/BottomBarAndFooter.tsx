@@ -43,7 +43,7 @@ export function BottomBarAndFooter({
       />
 
       {/* Quiet Editorial Footer */}
-      <footer className="bg-[#102D69] dark:bg-[#070B14] text-white pt-12 pb-10 border-t border-[#102D69]/10 dark:border-slate-800">
+      <footer className="bg-[#102D69] dark:bg-[#0A0A0A] text-white pt-12 pb-10 border-t border-[#102D69]/10 dark:border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/15">
             <div className="md:col-span-5">
@@ -76,7 +76,7 @@ export function BottomBarAndFooter({
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#060F26] font-semibold text-sm transition-colors cursor-pointer whitespace-nowrap"
+                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#121212] font-semibold text-sm transition-colors cursor-pointer whitespace-nowrap"
               >
                 <CalendarCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>{content.footer.consultCta}</span>
@@ -132,7 +132,7 @@ export function BottomBarAndFooter({
       {/* Mobile Slide-Up Sheet for DE/EN Toggle, Dark Mode, Style Guide & All Sections */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 z-50 flex items-end bg-[#060F26]/60 backdrop-blur-xs"
+          className="md:hidden fixed inset-0 z-50 flex items-end bg-[#060F26]/60 dark:bg-black/60 backdrop-blur-xs"
           onClick={() => onCloseMobileMenu()}
         >
           <div
@@ -140,9 +140,9 @@ export function BottomBarAndFooter({
             aria-modal="true"
             aria-labelledby="mobile-sheet-title"
             onClick={(e) => e.stopPropagation()}
-            className="w-full rounded-t-3xl bg-white dark:bg-[#0B1734] border-t border-[#102D69]/15 dark:border-slate-700 p-6 pb-8 max-h-[82vh] overflow-y-auto"
+            className="w-full rounded-t-3xl bg-white dark:bg-[#1C1C1E] border-t border-[#102D69]/15 dark:border-neutral-700 p-6 pb-8 max-h-[82vh] overflow-y-auto"
           >
-            <div className="w-10 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full mx-auto mb-5" />
+            <div className="w-10 h-1.5 bg-slate-300 dark:bg-neutral-600 rounded-full mx-auto mb-5" />
 
             <div className="flex items-center justify-between mb-6">
               <h2
@@ -155,7 +155,7 @@ export function BottomBarAndFooter({
                 type="button"
                 onClick={() => onCloseMobileMenu()}
                 aria-label={content.contactDrawer.closeLabel}
-                className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-slate-700 text-[#102D69] dark:text-slate-200"
+                className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-neutral-700 text-[#102D69] dark:text-neutral-200"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -170,15 +170,15 @@ export function BottomBarAndFooter({
                 <div
                   role="group"
                   aria-label={content.utility.languageLabel}
-                  className="inline-flex h-11 flex-1 items-center justify-center gap-1 p-1 rounded-xl bg-[#F3F5FA] dark:bg-[#060F26] border border-[#102D69]/10 dark:border-slate-800"
+                  className="inline-flex h-11 flex-1 items-center justify-center gap-1 p-1 rounded-xl bg-[#F3F5FA] dark:bg-[#121212] border border-[#102D69]/10 dark:border-neutral-800"
                 >
                   <button
                     type="button"
                     onClick={() => onChangeLocale('de')}
                     className={`h-full flex-1 rounded-lg text-xs font-bold ${
                       locale === 'de'
-                        ? 'bg-[#102D69] text-white dark:bg-[#F28C45] dark:text-[#060F26]'
-                        : 'text-[#1B1F2B] dark:text-slate-300'
+                        ? 'bg-[#102D69] text-white dark:bg-[#F28C45] dark:text-[#121212]'
+                        : 'text-[#1B1F2B] dark:text-neutral-300'
                     }`}
                   >
                     DE
@@ -188,8 +188,8 @@ export function BottomBarAndFooter({
                     onClick={() => onChangeLocale('en')}
                     className={`h-full flex-1 rounded-lg text-xs font-bold ${
                       locale === 'en'
-                        ? 'bg-[#102D69] text-white dark:bg-[#F28C45] dark:text-[#060F26]'
-                        : 'text-[#1B1F2B] dark:text-slate-300'
+                        ? 'bg-[#102D69] text-white dark:bg-[#F28C45] dark:text-[#121212]'
+                        : 'text-[#1B1F2B] dark:text-neutral-300'
                     }`}
                   >
                     EN
@@ -204,7 +204,7 @@ export function BottomBarAndFooter({
                       ? content.utility.themeLight
                       : content.utility.themeDark
                   }
-                  className="h-11 w-11 inline-flex items-center justify-center rounded-xl bg-[#F3F5FA] dark:bg-[#060F26] border border-[#102D69]/10 dark:border-slate-800 text-[#102D69] dark:text-white shrink-0"
+                  className="h-11 w-11 inline-flex items-center justify-center rounded-xl bg-[#F3F5FA] dark:bg-[#121212] border border-[#102D69]/10 dark:border-neutral-800 text-[#102D69] dark:text-white shrink-0"
                 >
                   {theme === 'dark' ? (
                     <Sun className="w-4 h-4 text-[#F28C45]" />
@@ -217,7 +217,7 @@ export function BottomBarAndFooter({
 
             {/* Section Links */}
             <div className="space-y-2 mb-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400 mb-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400 mb-2">
                 {content.mobileBar.sectionsTitle}
               </p>
               {[
@@ -234,7 +234,7 @@ export function BottomBarAndFooter({
                     href={`#${item.id}`}
                     onClick={() => onCloseMobileMenu()}
                     aria-current={isActive ? 'true' : undefined}
-                    className={`flex items-center min-h-[48px] px-4 rounded-xl bg-[#F3F5FA] dark:bg-[#060F26] text-sm font-bold transition-colors ${
+                    className={`flex items-center min-h-[48px] px-4 rounded-xl bg-[#F3F5FA] dark:bg-[#121212] text-sm font-bold transition-colors ${
                       isActive
                         ? 'text-[#B84F05] dark:text-[#F28C45]'
                         : 'text-[#102D69] dark:text-white'
@@ -252,21 +252,21 @@ export function BottomBarAndFooter({
                 onCloseMobileMenu();
                 onOpenConsultation();
               }}
-              className="w-full min-h-[48px] rounded-xl bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] font-bold text-sm"
+              className="w-full min-h-[48px] rounded-xl bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#121212] font-bold text-sm"
             >
               {content.nav.cta}
             </button>
             <div className="mt-4 grid grid-cols-2 gap-2">
               <a
                 href="tel:+43316386097"
-                className="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/15 dark:border-slate-700 text-sm font-semibold text-[#102D69] dark:text-white"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/15 dark:border-neutral-700 text-sm font-semibold text-[#102D69] dark:text-white"
               >
                 <Phone className="w-4 h-4" aria-hidden="true" />
                 <span>{content.mobileBar.callLabel}</span>
               </a>
               <a
                 href="mailto:office@knopper-stb.at"
-                className="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/15 dark:border-slate-700 text-sm font-semibold text-[#102D69] dark:text-white"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/15 dark:border-neutral-700 text-sm font-semibold text-[#102D69] dark:text-white"
               >
                 <Mail className="w-4 h-4" aria-hidden="true" />
                 <span>{content.mobileBar.mailLabel}</span>

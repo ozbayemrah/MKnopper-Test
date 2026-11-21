@@ -33,7 +33,7 @@ export function SlidingContactDrawer({
         aria-expanded={isOpen}
         aria-label={content.contactDrawer.tabLabel}
         title={content.contactDrawer.tabLabel}
-        className="group hidden md:inline-flex fixed right-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12 items-center justify-center rounded-l-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] shadow-lg origin-right transition-all duration-200 hover:scale-125 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+        className="group hidden md:inline-flex fixed right-0 top-1/2 -translate-y-1/2 z-40 w-12 h-12 items-center justify-center rounded-l-xl bg-[#102D69] hover:bg-[#B84F05] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#121212] shadow-lg origin-right transition-all duration-200 hover:scale-125 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
       >
         <MessageSquare
           className="w-5 h-5 transition-transform duration-200 group-hover:scale-110"
@@ -44,7 +44,7 @@ export function SlidingContactDrawer({
       {/* Backdrop & Slide-over Drawer */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex justify-end bg-[#060F26]/55 backdrop-blur-xs"
+          className="fixed inset-0 z-50 flex justify-end bg-[#060F26]/55 dark:bg-black/55 backdrop-blur-xs"
           onClick={() => setIsOpen(false)}
         >
           <aside
@@ -52,10 +52,10 @@ export function SlidingContactDrawer({
             aria-modal="true"
             aria-labelledby="contact-drawer-title"
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md h-full bg-white dark:bg-[#060F26] border-l border-[#102D69]/15 dark:border-slate-800 shadow-2xl flex flex-col justify-between overflow-y-auto p-6 sm:p-7"
+            className="w-full max-w-md h-full bg-white dark:bg-[#121212] border-l border-[#102D69]/15 dark:border-neutral-800 shadow-2xl flex flex-col justify-between overflow-y-auto p-6 sm:p-7"
           >
             <div>
-              <div className="flex items-start justify-between gap-4 pb-5 mb-6 border-b border-[#102D69]/10 dark:border-slate-800">
+              <div className="flex items-start justify-between gap-4 pb-5 mb-6 border-b border-[#102D69]/10 dark:border-neutral-800">
                 <div className="flex items-center gap-3.5">
                   <img
                     src="images/knopper-blazer-portrait.jpg"
@@ -72,7 +72,7 @@ export function SlidingContactDrawer({
                     >
                       {content.contactDrawer.title}
                     </h2>
-                    <p className="text-xs text-[#1B1F2B] dark:text-slate-300 mt-0.5">
+                    <p className="text-xs text-[#1B1F2B] dark:text-neutral-300 mt-0.5">
                       {content.contactDrawer.subtitle}
                     </p>
                   </div>
@@ -82,7 +82,7 @@ export function SlidingContactDrawer({
                   type="button"
                   onClick={() => setIsOpen(false)}
                   aria-label={content.contactDrawer.closeLabel}
-                  className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-slate-700 text-[#102D69] dark:text-slate-200 hover:bg-[#F3F5FA] dark:hover:bg-[#0B1734] cursor-pointer shrink-0"
+                  className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-neutral-700 text-[#102D69] dark:text-neutral-200 hover:bg-[#F3F5FA] dark:hover:bg-[#1C1C1E] cursor-pointer shrink-0"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -90,10 +90,10 @@ export function SlidingContactDrawer({
 
               {/* Contact Rows */}
               <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734]">
+                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E]">
                   <MapPin className="w-5 h-5 text-[#B84F05] dark:text-[#F28C45] shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                       {content.contactDrawer.addressLabel}
                     </p>
                     <p className="text-sm font-semibold text-[#102D69] dark:text-white mt-0.5">
@@ -104,11 +104,11 @@ export function SlidingContactDrawer({
 
                 <a
                   href="tel:+43316386097"
-                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] hover:border-[#EC6608]/40 border border-transparent transition-colors"
+                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E] hover:border-[#EC6608]/40 border border-transparent transition-colors"
                 >
                   <Phone className="w-5 h-5 text-[#B84F05] dark:text-[#F28C45] shrink-0" />
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                       {content.contactDrawer.phoneLabel}
                     </p>
                     <p className="font-mono-tabular text-sm font-semibold text-[#102D69] dark:text-white mt-0.5">
@@ -119,11 +119,11 @@ export function SlidingContactDrawer({
 
                 <a
                   href="tel:+436645210778"
-                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] hover:border-[#EC6608]/40 border border-transparent transition-colors"
+                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E] hover:border-[#EC6608]/40 border border-transparent transition-colors"
                 >
                   <Smartphone className="w-5 h-5 text-[#B84F05] dark:text-[#F28C45] shrink-0" />
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                       {content.contactDrawer.mobileLabel}
                     </p>
                     <p className="font-mono-tabular text-sm font-semibold text-[#102D69] dark:text-white mt-0.5">
@@ -134,11 +134,11 @@ export function SlidingContactDrawer({
 
                 <a
                   href="mailto:office@knopper-stb.at"
-                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] hover:border-[#EC6608]/40 border border-transparent transition-colors"
+                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E] hover:border-[#EC6608]/40 border border-transparent transition-colors"
                 >
                   <Mail className="w-5 h-5 text-[#B84F05] dark:text-[#F28C45] shrink-0" />
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                       {content.contactDrawer.emailLabel}
                     </p>
                     <p className="text-sm font-semibold text-[#102D69] dark:text-white mt-0.5">
@@ -151,11 +151,11 @@ export function SlidingContactDrawer({
                   href="https://www.knopper-stb.at"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] hover:border-[#EC6608]/40 border border-transparent transition-colors"
+                  className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E] hover:border-[#EC6608]/40 border border-transparent transition-colors"
                 >
                   <Globe className="w-5 h-5 text-[#B84F05] dark:text-[#F28C45] shrink-0" />
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                       {content.contactDrawer.webLabel}
                     </p>
                     <p className="text-sm font-semibold text-[#102D69] dark:text-white mt-0.5">
@@ -166,25 +166,25 @@ export function SlidingContactDrawer({
               </div>
 
               {/* Security & Response Note */}
-              <div className="rounded-xl border border-[#102D69]/15 dark:border-slate-800 p-4 space-y-2 mb-6">
-                <div className="flex items-start gap-2.5 text-xs text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
+              <div className="rounded-xl border border-[#102D69]/15 dark:border-neutral-800 p-4 space-y-2 mb-6">
+                <div className="flex items-start gap-2.5 text-xs text-[#1B1F2B] dark:text-neutral-300 leading-relaxed">
                   <ShieldAlert className="w-4 h-4 text-[#B84F05] dark:text-[#F28C45] shrink-0 mt-0.5" />
                   <span>{content.contactDrawer.emailSecurityNote}</span>
                 </div>
-                <p className="text-xs font-semibold text-[#102D69] dark:text-slate-200 pl-6">
+                <p className="text-xs font-semibold text-[#102D69] dark:text-neutral-200 pl-6">
                   {content.contactDrawer.responseNote}
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#102D69]/10 dark:border-slate-800">
+            <div className="pt-4 border-t border-[#102D69]/10 dark:border-neutral-800">
               <button
                 type="button"
                 onClick={() => {
                   setIsOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] font-semibold text-sm transition-colors cursor-pointer"
+                className="w-full min-h-[48px] inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#121212] font-semibold text-sm transition-colors cursor-pointer"
               >
                 <CalendarCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>{content.contactDrawer.primaryBtn}</span>

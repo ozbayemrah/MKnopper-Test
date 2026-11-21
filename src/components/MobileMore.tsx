@@ -25,7 +25,7 @@ export function MobileMore({ moreLabel, lessLabel, children }: MobileMoreProps) 
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen((v) => !v)}
-        className="md:hidden mt-4 w-full min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-sm font-semibold text-[#102D69] dark:text-slate-100 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+        className="md:hidden mt-4 w-full min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-[#102D69]/20 dark:border-neutral-700 bg-white dark:bg-[#121212] text-sm font-semibold text-[#102D69] dark:text-neutral-100 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
       >
         <span>{open ? lessLabel : moreLabel}</span>
         <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden="true" />

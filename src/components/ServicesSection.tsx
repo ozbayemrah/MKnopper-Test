@@ -9,7 +9,7 @@ export function ServicesSection({ content }: ServicesSectionProps) {
   return (
     <section
       id="services"
-      className="py-14 sm:py-20 border-b border-[#102D69]/10 dark:border-slate-800/80"
+      className="py-14 sm:py-20 border-b border-[#102D69]/10 dark:border-neutral-800/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-10 sm:mb-12">
@@ -19,7 +19,7 @@ export function ServicesSection({ content }: ServicesSectionProps) {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#102D69] dark:text-white tracking-tight mb-4">
             {content.services.title}
           </h2>
-          <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-neutral-300 leading-relaxed">
             {content.services.intro}
           </p>
         </div>
@@ -33,8 +33,8 @@ export function ServicesSection({ content }: ServicesSectionProps) {
                 key={item.index}
                 className={`rounded-2xl p-6 sm:p-7 border transition-colors ${
                   item.highlight
-                    ? 'bg-[#102D69] text-white border-[#102D69] dark:bg-[#162856] dark:border-[#F28C45]/30'
-                    : 'bg-[#F3F5FA] dark:bg-[#0B1734] text-[#1B1F2B] dark:text-slate-200 border-[#102D69]/10 dark:border-slate-800'
+                    ? 'bg-[#102D69] text-white border-[#102D69] dark:bg-[#2C2C2E] dark:border-[#F28C45]/30'
+                    : 'bg-[#F3F5FA] dark:bg-[#1C1C1E] text-[#1B1F2B] dark:text-neutral-200 border-[#102D69]/10 dark:border-neutral-800'
                 } ${isWideOnMd ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
                 <div className="flex items-center justify-between gap-3 mb-4">
@@ -51,7 +51,7 @@ export function ServicesSection({ content }: ServicesSectionProps) {
                     className={`text-xs font-medium ${
                       item.highlight
                         ? 'text-slate-300'
-                        : 'text-[#1B1F2B]/70 dark:text-slate-400'
+                        : 'text-[#1B1F2B]/70 dark:text-neutral-400'
                     }`}
                   >
                     {item.subtitle}
@@ -72,7 +72,7 @@ export function ServicesSection({ content }: ServicesSectionProps) {
                   className={`text-sm sm:text-[15px] leading-relaxed ${
                     item.highlight
                       ? 'text-slate-200'
-                      : 'text-[#1B1F2B] dark:text-slate-300'
+                      : 'text-[#1B1F2B] dark:text-neutral-300'
                   }`}
                 >
                   {item.description}

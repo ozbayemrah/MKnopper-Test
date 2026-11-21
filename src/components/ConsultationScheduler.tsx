@@ -485,7 +485,7 @@ export function ConsultationScheduler({
     <div className={isModal ? 'relative' : ''}>
       {/* Modal Header if rendered as overlay */}
       {isModal && (
-        <div className="flex items-start justify-between gap-3 pb-4 mb-4 sm:pb-6 sm:mb-6 border-b border-[#102D69]/10 dark:border-slate-800">
+        <div className="flex items-start justify-between gap-3 pb-4 mb-4 sm:pb-6 sm:mb-6 border-b border-[#102D69]/10 dark:border-neutral-800">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#EC6608]/10 dark:bg-[#F28C45]/15 text-[#B84F05] dark:text-[#F28C45] flex items-center justify-center shrink-0 mt-0.5">
               <CalendarCheck className="w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
@@ -497,7 +497,7 @@ export function ConsultationScheduler({
               <h2 className="text-xl sm:text-3xl font-bold text-[#102D69] dark:text-white leading-tight">
                 {content.consultation.title}
               </h2>
-              <p className="hidden sm:block text-sm text-[#1B1F2B] dark:text-slate-300 mt-1">
+              <p className="hidden sm:block text-sm text-[#1B1F2B] dark:text-neutral-300 mt-1">
                 {content.consultation.subtitle}
               </p>
             </div>
@@ -507,7 +507,7 @@ export function ConsultationScheduler({
               type="button"
               onClick={onCloseModal}
               aria-label={content.contactDrawer.closeLabel}
-              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-slate-700 text-[#102D69] dark:text-slate-200 hover:bg-[#F3F5FA] dark:hover:bg-[#0B1734] cursor-pointer shrink-0"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-neutral-700 text-[#102D69] dark:text-neutral-200 hover:bg-[#F3F5FA] dark:hover:bg-[#1C1C1E] cursor-pointer shrink-0"
             >
               <X className="w-5 h-5" />
             </button>
@@ -542,7 +542,7 @@ export function ConsultationScheduler({
 
       {/* Success Receipt View */}
       {(requestSent || createdEvent || icsDownloaded) ? (
-        <div className="rounded-2xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 p-5 sm:p-8 animate-step-in">
+        <div className="rounded-2xl bg-[#F3F5FA] dark:bg-[#1C1C1E] border border-[#102D69]/12 dark:border-neutral-800 p-5 sm:p-8 animate-step-in">
           <div className="flex items-start gap-3.5 sm:gap-4 mb-5 sm:mb-6">
             <div className="w-11 h-11 rounded-full bg-emerald-600/15 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
               <CalendarCheck className="w-6 h-6" />
@@ -555,7 +555,7 @@ export function ConsultationScheduler({
                   ? content.consultation.success.titleGoogle
                   : content.consultation.success.titleIcs}
               </h3>
-              <p className="text-xs sm:text-base text-[#1B1F2B] dark:text-slate-300 mt-1 leading-relaxed">
+              <p className="text-xs sm:text-base text-[#1B1F2B] dark:text-neutral-300 mt-1 leading-relaxed">
                 {requestSent
                   ? content.consultation.success.descSent
                   : createdEvent
@@ -568,21 +568,21 @@ export function ConsultationScheduler({
             </div>
           </div>
 
-          <div className="rounded-xl bg-white dark:bg-[#060F26] border border-[#102D69]/10 dark:border-slate-800 p-4 sm:p-5 mb-5 sm:mb-6 space-y-1.5 text-sm">
+          <div className="rounded-xl bg-white dark:bg-[#121212] border border-[#102D69]/10 dark:border-neutral-800 p-4 sm:p-5 mb-5 sm:mb-6 space-y-1.5 text-sm">
             <p className="font-bold text-[#102D69] dark:text-white">
               {eventPreview.summary}
             </p>
             <p className="font-mono-tabular text-[#B84F05] dark:text-[#F28C45] font-semibold">
               {displayDate} · {activeSlot}–{endSlot}{locale === 'de' ? ' Uhr' : ''}
             </p>
-            <p className="text-xs sm:text-sm text-[#1B1F2B] dark:text-slate-300">
+            <p className="text-xs sm:text-sm text-[#1B1F2B] dark:text-neutral-300">
               {eventPreview.location}
             </p>
             {documents.map((doc) => (
-              <p key={doc.name} className="pt-1 flex items-center gap-2 text-xs font-semibold text-[#102D69] dark:text-slate-200">
+              <p key={doc.name} className="pt-1 flex items-center gap-2 text-xs font-semibold text-[#102D69] dark:text-neutral-200">
                 <FileText className="w-4 h-4 text-[#B84F05] dark:text-[#F28C45] shrink-0" aria-hidden="true" />
                 <span className="truncate">{doc.name}</span>
-                <span className="font-mono-tabular text-[#1B1F2B]/70 dark:text-slate-400 shrink-0">
+                <span className="font-mono-tabular text-[#1B1F2B]/70 dark:text-neutral-400 shrink-0">
                   ({formatBytes(doc.size)})
                 </span>
               </p>
@@ -595,7 +595,7 @@ export function ConsultationScheduler({
                 href={createdEvent.htmlLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#102D69] text-white dark:bg-[#F28C45] dark:text-[#060F26] text-sm font-semibold hover:opacity-95"
+                className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#102D69] text-white dark:bg-[#F28C45] dark:text-[#121212] text-sm font-semibold hover:opacity-95"
               >
                 <span>{content.consultation.success.openCalendarLink}</span>
                 <ExternalLink className="w-4 h-4" />
@@ -604,7 +604,7 @@ export function ConsultationScheduler({
             <button
               type="button"
               onClick={handleDownloadIcs}
-              className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#102D69]/20 dark:border-slate-700 text-[#102D69] dark:text-slate-100 text-sm font-semibold hover:bg-white dark:hover:bg-[#060F26] cursor-pointer"
+              className="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#102D69]/20 dark:border-neutral-700 text-[#102D69] dark:text-neutral-100 text-sm font-semibold hover:bg-white dark:hover:bg-[#121212] cursor-pointer"
             >
               <Download className="w-4 h-4" />
               <span>{content.consultation.success.downloadIcsAgain}</span>
@@ -624,7 +624,7 @@ export function ConsultationScheduler({
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <nav
               aria-label={content.consultation.title}
-              className="inline-flex flex-nowrap items-center p-1 rounded-xl bg-[#F3F5FA] dark:bg-[#060F26] border border-[#102D69]/12 dark:border-slate-800 gap-1 max-w-full overflow-x-auto"
+              className="inline-flex flex-nowrap items-center p-1 rounded-xl bg-[#F3F5FA] dark:bg-[#121212] border border-[#102D69]/12 dark:border-neutral-800 gap-1 max-w-full overflow-x-auto"
             >
               {[1, 2, 3].map((stepNum) => {
                 const stepIdx = stepNum as 1 | 2 | 3;
@@ -649,12 +649,12 @@ export function ConsultationScheduler({
                     aria-current={isActive ? 'step' : undefined}
                     className={`h-8 sm:h-9 px-2.5 sm:px-3.5 rounded-lg text-[11px] sm:text-xs font-semibold transition-all inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                       isActive
-                        ? 'bg-[#102D69] text-white dark:bg-[#193270] dark:text-white shadow-xs cursor-pointer'
+                        ? 'bg-[#102D69] text-white dark:bg-[#2C2C2E] dark:text-white shadow-xs cursor-pointer'
                         : isCompleted
-                        ? 'text-[#102D69] dark:text-slate-100 hover:bg-white dark:hover:bg-[#0B1734] cursor-pointer'
+                        ? 'text-[#102D69] dark:text-neutral-100 hover:bg-white dark:hover:bg-[#1C1C1E] cursor-pointer'
                         : isUnlocked
-                        ? 'text-[#1B1F2B] dark:text-slate-300 hover:bg-white/80 dark:hover:bg-[#0B1734] cursor-pointer'
-                        : 'text-[#1B1F2B]/40 dark:text-slate-500 cursor-not-allowed'
+                        ? 'text-[#1B1F2B] dark:text-neutral-300 hover:bg-white/80 dark:hover:bg-[#1C1C1E] cursor-pointer'
+                        : 'text-[#1B1F2B]/40 dark:text-neutral-500 cursor-not-allowed'
                     }`}
                   >
                     <span
@@ -689,7 +689,7 @@ export function ConsultationScheduler({
                 <div className="md:col-span-7">
                   <label
                     htmlFor={`${idPrefix}-consult-type`}
-                    className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1.5"
+                    className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1.5"
                   >
                     {content.consultation.typeLabel}
                   </label>
@@ -698,7 +698,7 @@ export function ConsultationScheduler({
                       id={`${idPrefix}-consult-type`}
                       value={consultType}
                       onChange={(e) => setConsultType(e.target.value as ConsultationType)}
-                      className="w-full min-h-[44px] appearance-none pl-3.5 pr-10 py-2 rounded-xl bg-white dark:bg-[#060F26] border border-[#102D69]/20 dark:border-slate-700 text-xs sm:text-sm font-semibold text-[#102D69] dark:text-slate-100 focus:outline-none focus:border-[#EC6608]"
+                      className="w-full min-h-[44px] appearance-none pl-3.5 pr-10 py-2 rounded-xl bg-white dark:bg-[#121212] border border-[#102D69]/20 dark:border-neutral-700 text-xs sm:text-sm font-semibold text-[#102D69] dark:text-neutral-100 focus:outline-none focus:border-[#EC6608]"
                     >
                       {content.consultation.types.map((item) => (
                         <option key={item.id} value={item.id}>
@@ -711,14 +711,14 @@ export function ConsultationScheduler({
                       aria-hidden="true"
                     />
                   </div>
-                  <p className="mt-1.5 text-[11px] sm:text-xs text-[#1B1F2B]/80 dark:text-slate-400 leading-snug">
+                  <p className="mt-1.5 text-[11px] sm:text-xs text-[#1B1F2B]/80 dark:text-neutral-400 leading-snug">
                     {selectedTypeObj.desc}
                   </p>
                 </div>
 
                 {/* Preferred Format Toggle */}
                 <div className="md:col-span-5">
-                  <span className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1.5">
+                  <span className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1.5">
                     {content.consultation.formatLabel}
                   </span>
                   <div className="grid grid-cols-2 gap-2">
@@ -735,10 +735,10 @@ export function ConsultationScheduler({
                           onClick={() => setFormat(fmt.id)}
                           className={`min-h-[44px] px-3 py-2 rounded-xl border text-left text-xs font-semibold flex items-center gap-2 transition-colors ${
                             blocked
-                              ? 'bg-slate-100 dark:bg-slate-800/50 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed'
+                              ? 'bg-slate-100 dark:bg-neutral-800/50 border-slate-200 dark:border-neutral-800 text-slate-400 dark:text-neutral-500 cursor-not-allowed'
                               : active
-                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] border-[#EC6608] cursor-pointer'
-                              : 'bg-white dark:bg-[#060F26] text-[#102D69] dark:text-slate-200 border-[#102D69]/20 dark:border-slate-700 hover:border-[#EC6608]/50 cursor-pointer'
+                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#121212] border-[#EC6608] cursor-pointer'
+                              : 'bg-white dark:bg-[#121212] text-[#102D69] dark:text-neutral-200 border-[#102D69]/20 dark:border-neutral-700 hover:border-[#EC6608]/50 cursor-pointer'
                           }`}
                         >
                           {fmt.id === 'video' ? (
@@ -754,7 +754,7 @@ export function ConsultationScheduler({
                   {inPersonBlocked && (
                     <p
                       id={`${idPrefix}-inperson-note`}
-                      className="mt-1.5 text-[11px] sm:text-xs text-[#1B1F2B]/80 dark:text-slate-400 leading-snug"
+                      className="mt-1.5 text-[11px] sm:text-xs text-[#1B1F2B]/80 dark:text-neutral-400 leading-snug"
                     >
                       {content.consultation.inPersonPaidOnly}
                     </p>
@@ -763,15 +763,15 @@ export function ConsultationScheduler({
               </div>
 
               {/* Primary Topic Selector (Auto-advances to Step 2 on selection) */}
-              <div className="pt-2 border-t border-[#102D69]/10 dark:border-slate-800">
+              <div className="pt-2 border-t border-[#102D69]/10 dark:border-neutral-800">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                   <label
                     htmlFor={`${idPrefix}-topic`}
-                    className="text-xs font-bold text-[#102D69] dark:text-slate-200"
+                    className="text-xs font-bold text-[#102D69] dark:text-neutral-200"
                   >
                     {content.consultation.topicsLabel}
                   </label>
-                  <span className="text-[11px] text-[#1B1F2B]/75 dark:text-slate-400">
+                  <span className="text-[11px] text-[#1B1F2B]/75 dark:text-neutral-400">
                     {content.consultation.wizard.selectTopicHint}
                   </span>
                 </div>
@@ -787,7 +787,7 @@ export function ConsultationScheduler({
                         handleSelectTopic(val);
                       }
                     }}
-                    className="w-full min-h-[44px] appearance-none pl-3.5 pr-10 py-2 rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/20 dark:border-slate-700 text-sm font-semibold text-[#102D69] dark:text-slate-100 focus:outline-none focus:border-[#EC6608]"
+                    className="w-full min-h-[44px] appearance-none pl-3.5 pr-10 py-2 rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E] border border-[#102D69]/20 dark:border-neutral-700 text-sm font-semibold text-[#102D69] dark:text-neutral-100 focus:outline-none focus:border-[#EC6608]"
                   >
                     <option value="">{content.consultation.topicPlaceholder}</option>
                     {TOPIC_KEYS.map((key) => (
@@ -819,8 +819,8 @@ export function ConsultationScheduler({
                         onClick={() => handleSelectTopic(key)}
                         className={`min-h-[38px] px-3 py-2 rounded-lg border text-left text-xs font-semibold flex items-center justify-between gap-2 transition-colors cursor-pointer group ${
                           active
-                            ? 'bg-[#102D69] text-white border-[#102D69] dark:bg-[#193270] dark:border-[#F28C45]'
-                            : 'bg-[#F3F5FA]/65 dark:bg-[#0B1734] text-[#102D69] dark:text-slate-200 border-[#102D69]/12 dark:border-slate-700 hover:border-[#EC6608]/60 hover:bg-white dark:hover:bg-[#162340]'
+                            ? 'bg-[#102D69] text-white border-[#102D69] dark:bg-[#2C2C2E] dark:border-[#F28C45]'
+                            : 'bg-[#F3F5FA]/65 dark:bg-[#1C1C1E] text-[#102D69] dark:text-neutral-200 border-[#102D69]/12 dark:border-neutral-700 hover:border-[#EC6608]/60 hover:bg-white dark:hover:bg-[#2C2C2E]'
                         }`}
                       >
                         <span className="leading-snug">{content.consultation.topics[key]}</span>
@@ -844,7 +844,7 @@ export function ConsultationScheduler({
                   <button
                     type="button"
                     onClick={() => setCurrentStep(2)}
-                    className="min-h-[42px] inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#060F26] text-xs sm:text-sm font-semibold cursor-pointer"
+                    className="min-h-[42px] inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#121212] text-xs sm:text-sm font-semibold cursor-pointer"
                   >
                     <span>{content.consultation.wizard.continueToDateBtn}</span>
                     <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -859,21 +859,21 @@ export function ConsultationScheduler({
             <div className="animate-step-in space-y-4">
               {/* Compact Step 1 Recap + Google Calendar Button & Info Hover Tooltip */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                <div className="flex-1 min-w-0 rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 px-3 py-2 flex items-center justify-between gap-2">
+                <div className="flex-1 min-w-0 rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E] border border-[#102D69]/12 dark:border-neutral-800 px-3 py-2 flex items-center justify-between gap-2">
                   <div className="min-w-0 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
                     <span className="font-bold text-[#102D69] dark:text-white truncate">
                       {content.consultation.topics[effectiveTopic]}
                     </span>
-                    <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-slate-500">
+                    <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-neutral-500">
                       ·
                     </span>
                     <span className="text-[#B84F05] dark:text-[#F28C45] font-semibold truncate">
                       {selectedTypeObj.feeLabel}
                     </span>
-                    <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-slate-500">
+                    <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-neutral-500">
                       ·
                     </span>
-                    <span className="text-[#1B1F2B] dark:text-slate-300 truncate">
+                    <span className="text-[#1B1F2B] dark:text-neutral-300 truncate">
                       {selectedFormatObj.shortLabel}
                     </span>
                   </div>
@@ -892,7 +892,7 @@ export function ConsultationScheduler({
                     <button
                       type="button"
                       onClick={handleGoogleSignOut}
-                      className="h-9 inline-flex items-center gap-1.5 px-3 rounded-lg border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-xs font-semibold text-[#102D69] dark:text-slate-200 hover:border-[#EC6608]/60 whitespace-nowrap cursor-pointer"
+                      className="h-9 inline-flex items-center gap-1.5 px-3 rounded-lg border border-[#102D69]/20 dark:border-neutral-700 bg-white dark:bg-[#121212] text-xs font-semibold text-[#102D69] dark:text-neutral-200 hover:border-[#EC6608]/60 whitespace-nowrap cursor-pointer"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" aria-hidden="true" />
                       <span>{content.consultation.googleSignOutBtn}</span>
@@ -952,7 +952,7 @@ export function ConsultationScheduler({
                       aria-label={content.consultation.googleCheckHeading}
                       aria-expanded={showGoogleInfo}
                       aria-describedby={`${idPrefix}-gcal-tooltip`}
-                      className="w-9 h-9 inline-flex items-center justify-center rounded-lg border border-[#102D69]/15 dark:border-slate-700 bg-white dark:bg-[#060F26] text-[#102D69]/75 dark:text-slate-300 hover:text-[#B84F05] hover:border-[#EC6608]/50 dark:hover:text-[#F28C45] transition-colors cursor-pointer"
+                      className="w-9 h-9 inline-flex items-center justify-center rounded-lg border border-[#102D69]/15 dark:border-neutral-700 bg-white dark:bg-[#121212] text-[#102D69]/75 dark:text-neutral-300 hover:text-[#B84F05] hover:border-[#EC6608]/50 dark:hover:text-[#F28C45] transition-colors cursor-pointer"
                     >
                       <Info className="w-4 h-4" aria-hidden="true" />
                     </button>
@@ -960,7 +960,7 @@ export function ConsultationScheduler({
                     <div
                       id={`${idPrefix}-gcal-tooltip`}
                       role="tooltip"
-                      className={`absolute right-0 top-full mt-2 w-64 sm:w-72 rounded-xl bg-white dark:bg-[#0B1734] border border-[#102D69]/15 dark:border-slate-700 p-3 shadow-xl z-30 transition-all duration-150 ${
+                      className={`absolute right-0 top-full mt-2 w-64 sm:w-72 rounded-xl bg-white dark:bg-[#1C1C1E] border border-[#102D69]/15 dark:border-neutral-700 p-3 shadow-xl z-30 transition-all duration-150 ${
                         showGoogleInfo
                           ? 'opacity-100 translate-y-0 pointer-events-auto'
                           : 'opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0'
@@ -969,7 +969,7 @@ export function ConsultationScheduler({
                       <p className="text-[11px] font-bold uppercase tracking-wider text-[#B84F05] dark:text-[#F28C45] mb-1">
                         {content.consultation.googleCheckHeading}
                       </p>
-                      <p className="text-xs text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
+                      <p className="text-xs text-[#1B1F2B] dark:text-neutral-300 leading-relaxed">
                         {accessToken && googleUser
                           ? `${content.consultation.googleCheckConnected} (${googleUser.email})`
                           : content.consultation.googleBusyNote}
@@ -984,7 +984,7 @@ export function ConsultationScheduler({
                 <div className="md:col-span-4">
                   <span
                     id={`${idPrefix}-date-label`}
-                    className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1.5"
+                    className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1.5"
                   >
                     {content.consultation.dateLabel}
                   </span>
@@ -1008,8 +1008,8 @@ export function ConsultationScheduler({
                           onClick={() => setSelectedDate(day)}
                           className={`min-h-[44px] px-1.5 py-1 rounded-xl border font-mono-tabular text-xs font-semibold flex flex-col items-center justify-center leading-tight transition-colors cursor-pointer ${
                             active
-                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] border-[#EC6608]'
-                              : 'bg-white dark:bg-[#060F26] text-[#102D69] dark:text-slate-200 border-[#102D69]/15 dark:border-slate-700 hover:border-[#EC6608]/60'
+                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#121212] border-[#EC6608]'
+                              : 'bg-white dark:bg-[#121212] text-[#102D69] dark:text-neutral-200 border-[#102D69]/15 dark:border-neutral-700 hover:border-[#EC6608]/60'
                           }`}
                         >
                           <span className="text-[10px] font-bold uppercase tracking-wide opacity-80">{weekday}</span>
@@ -1018,17 +1018,17 @@ export function ConsultationScheduler({
                       );
                     })}
                   </div>
-                  <p className="mt-1.5 text-[11px] text-[#1B1F2B]/75 dark:text-slate-400">
+                  <p className="mt-1.5 text-[11px] text-[#1B1F2B]/75 dark:text-neutral-400">
                     {content.consultation.timezoneNote}
                   </p>
                 </div>
 
                 <div className="md:col-span-8">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold text-[#102D69] dark:text-slate-200">
+                    <span className="text-xs font-bold text-[#102D69] dark:text-neutral-200">
                       {content.consultation.timeLabel}
                     </span>
-                    <span className="text-[11px] text-[#1B1F2B]/75 dark:text-slate-400">
+                    <span className="text-[11px] text-[#1B1F2B]/75 dark:text-neutral-400">
                       {checkingBusy ? '...' : content.consultation.wizard.selectDateTimeHint}
                     </span>
                   </div>
@@ -1043,10 +1043,10 @@ export function ConsultationScheduler({
                           onClick={() => handleSelectSlot(time)}
                           className={`min-h-[40px] sm:min-h-[44px] px-2 py-1.5 rounded-xl border font-mono-tabular text-xs font-semibold flex flex-col items-center justify-center transition-colors ${
                             busy
-                              ? 'bg-slate-100 dark:bg-slate-800/50 border-slate-200 dark:border-slate-800 text-slate-400 cursor-not-allowed line-through'
+                              ? 'bg-slate-100 dark:bg-neutral-800/50 border-slate-200 dark:border-neutral-800 text-slate-400 cursor-not-allowed line-through'
                               : active
-                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] border-[#EC6608] cursor-pointer'
-                              : 'bg-white dark:bg-[#060F26] text-[#102D69] dark:text-slate-200 border-[#102D69]/15 dark:border-slate-700 hover:border-[#EC6608]/60 cursor-pointer'
+                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#121212] border-[#EC6608] cursor-pointer'
+                              : 'bg-white dark:bg-[#121212] text-[#102D69] dark:text-neutral-200 border-[#102D69]/15 dark:border-neutral-700 hover:border-[#EC6608]/60 cursor-pointer'
                           }`}
                         >
                           <span>{time}</span>
@@ -1063,11 +1063,11 @@ export function ConsultationScheduler({
               </div>
 
               {/* Navigation Footer */}
-              <div className="flex items-center justify-between gap-3 pt-2 border-t border-[#102D69]/10 dark:border-slate-800">
+              <div className="flex items-center justify-between gap-3 pt-2 border-t border-[#102D69]/10 dark:border-neutral-800">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="min-h-[40px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 text-xs font-semibold text-[#102D69] dark:text-slate-200 hover:bg-[#F3F5FA] dark:hover:bg-[#0B1734] cursor-pointer"
+                  className="min-h-[40px] inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#102D69]/20 dark:border-neutral-700 text-xs font-semibold text-[#102D69] dark:text-neutral-200 hover:bg-[#F3F5FA] dark:hover:bg-[#1C1C1E] cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>{content.consultation.wizard.backBtn}</span>
@@ -1077,7 +1077,7 @@ export function ConsultationScheduler({
                   <button
                     type="button"
                     onClick={() => setCurrentStep(3)}
-                    className="min-h-[40px] inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#060F26] text-xs font-semibold cursor-pointer"
+                    className="min-h-[40px] inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#121212] text-xs font-semibold cursor-pointer"
                   >
                     <span>{content.consultation.wizard.continueToContactBtn}</span>
                     <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -1091,21 +1091,21 @@ export function ConsultationScheduler({
           {currentStep === 3 && (
             <div className="animate-step-in space-y-4">
               {/* Compact Steps 1 & 2 Recap Bar */}
-              <div className="rounded-xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 px-3.5 py-2.5 flex flex-wrap items-center justify-between gap-2">
+              <div className="rounded-xl bg-[#F3F5FA] dark:bg-[#1C1C1E] border border-[#102D69]/12 dark:border-neutral-800 px-3.5 py-2.5 flex flex-wrap items-center justify-between gap-2">
                 <div className="min-w-0 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs">
                   <span className="font-mono-tabular font-bold text-[#B84F05] dark:text-[#F28C45]">
                     {displayDate} · {activeSlot}{locale === 'de' ? ' Uhr' : ''}
                   </span>
-                  <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-slate-500">
+                  <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-neutral-500">
                     ·
                   </span>
                   <span className="font-bold text-[#102D69] dark:text-white truncate">
                     {content.consultation.topics[effectiveTopic]}
                   </span>
-                  <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-slate-500">
+                  <span aria-hidden="true" className="text-[#1B1F2B]/40 dark:text-neutral-500">
                     ·
                   </span>
-                  <span className="text-[#1B1F2B] dark:text-slate-300 truncate">
+                  <span className="text-[#1B1F2B] dark:text-neutral-300 truncate">
                     {selectedFormatObj.shortLabel}
                   </span>
                 </div>
@@ -1119,14 +1119,14 @@ export function ConsultationScheduler({
               </div>
 
               {/* Compact Contact Form Card */}
-              <div className="rounded-2xl bg-[#F3F5FA] dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
+              <div className="rounded-2xl bg-[#F3F5FA] dark:bg-[#1C1C1E] border border-[#102D69]/12 dark:border-neutral-800 p-4 sm:p-6 space-y-3 sm:space-y-4">
                 {/* Name & Email Side-by-Side on sm+ to save mobile/tablet height */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* Full Name */}
                   <div>
                     <label
                       htmlFor={`${idPrefix}-name`}
-                      className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1"
+                      className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1"
                     >
                       {content.consultation.formLabels.name}
                     </label>
@@ -1141,12 +1141,12 @@ export function ConsultationScheduler({
                         onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
                         onChange={(e) => setName(e.target.value)}
                         placeholder={content.consultation.formLabels.namePlaceholder}
-                        className={`w-full min-h-[42px] pl-3 pr-8 py-2 rounded-xl bg-white dark:bg-[#060F26] text-sm text-[#102D69] dark:text-slate-100 focus:outline-none transition-colors ${
+                        className={`w-full min-h-[42px] pl-3 pr-8 py-2 rounded-xl bg-white dark:bg-[#121212] text-sm text-[#102D69] dark:text-neutral-100 focus:outline-none transition-colors ${
                           showNameError
                             ? 'border-2 border-red-500 dark:border-red-400'
                             : !nameError && name.trim()
                             ? 'border border-emerald-500/70 dark:border-emerald-400/60 focus:border-[#EC6608]'
-                            : 'border border-[#102D69]/20 dark:border-slate-700 focus:border-[#EC6608]'
+                            : 'border border-[#102D69]/20 dark:border-neutral-700 focus:border-[#EC6608]'
                         }`}
                       />
                       {!nameError && name.trim() && (
@@ -1171,7 +1171,7 @@ export function ConsultationScheduler({
                   <div>
                     <label
                       htmlFor={`${idPrefix}-email`}
-                      className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1"
+                      className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1"
                     >
                       {content.consultation.formLabels.email}
                     </label>
@@ -1186,12 +1186,12 @@ export function ConsultationScheduler({
                         onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder={content.consultation.formLabels.emailPlaceholder}
-                        className={`w-full min-h-[42px] pl-3 pr-8 py-2 rounded-xl bg-white dark:bg-[#060F26] text-sm text-[#102D69] dark:text-slate-100 focus:outline-none transition-colors ${
+                        className={`w-full min-h-[42px] pl-3 pr-8 py-2 rounded-xl bg-white dark:bg-[#121212] text-sm text-[#102D69] dark:text-neutral-100 focus:outline-none transition-colors ${
                           showEmailError
                             ? 'border-2 border-red-500 dark:border-red-400'
                             : !emailError && email.trim()
                             ? 'border border-emerald-500/70 dark:border-emerald-400/60 focus:border-[#EC6608]'
-                            : 'border border-[#102D69]/20 dark:border-slate-700 focus:border-[#EC6608]'
+                            : 'border border-[#102D69]/20 dark:border-neutral-700 focus:border-[#EC6608]'
                         }`}
                       />
                       {!emailError && email.trim() && (
@@ -1219,7 +1219,7 @@ export function ConsultationScheduler({
                   <div>
                     <label
                       htmlFor={`${idPrefix}-phone`}
-                      className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1"
+                      className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1"
                     >
                       {content.consultation.formLabels.phone}
                     </label>
@@ -1234,12 +1234,12 @@ export function ConsultationScheduler({
                         onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder={content.consultation.formLabels.phonePlaceholder}
-                        className={`w-full min-h-[42px] pl-3 pr-8 py-2 rounded-xl bg-white dark:bg-[#060F26] text-sm text-[#102D69] dark:text-slate-100 focus:outline-none transition-colors ${
+                        className={`w-full min-h-[42px] pl-3 pr-8 py-2 rounded-xl bg-white dark:bg-[#121212] text-sm text-[#102D69] dark:text-neutral-100 focus:outline-none transition-colors ${
                           showPhoneError
                             ? 'border-2 border-red-500 dark:border-red-400'
                             : !phoneError && phone.trim()
                             ? 'border border-emerald-500/70 dark:border-emerald-400/60 focus:border-[#EC6608]'
-                            : 'border border-[#102D69]/20 dark:border-slate-700 focus:border-[#EC6608]'
+                            : 'border border-[#102D69]/20 dark:border-neutral-700 focus:border-[#EC6608]'
                         }`}
                       />
                       {!phoneError && phone.trim() && (
@@ -1262,13 +1262,13 @@ export function ConsultationScheduler({
 
                   {/* Optional documents: single files or a whole folder (prototype: listed only, not sent) */}
                   <div>
-                    <span className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1">
+                    <span className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1">
                       {content.contactDrawer.documentUpload.label}
                     </span>
                     <div className="grid grid-cols-2 gap-2">
                       <label
                         htmlFor={fileInputId}
-                        className="min-h-[42px] inline-flex items-center justify-center gap-1.5 px-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-xs font-semibold text-[#102D69] dark:text-slate-100 hover:border-[#EC6608]/60 cursor-pointer focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#EC6608]"
+                        className="min-h-[42px] inline-flex items-center justify-center gap-1.5 px-2 rounded-xl border border-[#102D69]/20 dark:border-neutral-700 bg-white dark:bg-[#121212] text-xs font-semibold text-[#102D69] dark:text-neutral-100 hover:border-[#EC6608]/60 cursor-pointer focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#EC6608]"
                       >
                         <Upload className="w-4 h-4 shrink-0" aria-hidden="true" />
                         <span>{content.contactDrawer.documentUpload.buttonLabel}</span>
@@ -1276,7 +1276,7 @@ export function ConsultationScheduler({
                       </label>
                       <label
                         htmlFor={`${fileInputId}-folder`}
-                        className="min-h-[42px] inline-flex items-center justify-center gap-1.5 px-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-xs font-semibold text-[#102D69] dark:text-slate-100 hover:border-[#EC6608]/60 cursor-pointer focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#EC6608]"
+                        className="min-h-[42px] inline-flex items-center justify-center gap-1.5 px-2 rounded-xl border border-[#102D69]/20 dark:border-neutral-700 bg-white dark:bg-[#121212] text-xs font-semibold text-[#102D69] dark:text-neutral-100 hover:border-[#EC6608]/60 cursor-pointer focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#EC6608]"
                       >
                         <FolderUp className="w-4 h-4 shrink-0" aria-hidden="true" />
                         <span>{content.contactDrawer.documentUpload.folderLabel}</span>
@@ -1292,32 +1292,32 @@ export function ConsultationScheduler({
                         />
                       </label>
                     </div>
-                    <p id={`${fileInputId}-hint`} className="mt-1 text-[11px] text-[#1B1F2B]/75 dark:text-slate-400 leading-snug">
+                    <p id={`${fileInputId}-hint`} className="mt-1 text-[11px] text-[#1B1F2B]/75 dark:text-neutral-400 leading-snug">
                       {content.contactDrawer.documentUpload.prompt}
                     </p>
                   </div>
                 </div>
 
                 {documents.length > 0 && (
-                  <div className="rounded-xl bg-white dark:bg-[#060F26] border border-[#102D69]/12 dark:border-slate-800 px-3 py-2">
-                    <ul className="max-h-32 overflow-y-auto divide-y divide-[#102D69]/10 dark:divide-slate-800">
+                  <div className="rounded-xl bg-white dark:bg-[#121212] border border-[#102D69]/12 dark:border-neutral-800 px-3 py-2">
+                    <ul className="max-h-32 overflow-y-auto divide-y divide-[#102D69]/10 dark:divide-neutral-800">
                       {documents.map((doc) => (
                         <li key={doc.name} className="flex items-center gap-2 py-1.5 text-xs">
                           <FileText className="w-3.5 h-3.5 shrink-0 text-[#B84F05] dark:text-[#F28C45]" aria-hidden="true" />
-                          <span className="min-w-0 flex-1 truncate font-semibold text-[#102D69] dark:text-slate-100">{doc.name}</span>
-                          <span className="font-mono-tabular shrink-0 text-[#1B1F2B]/70 dark:text-slate-400">{formatBytes(doc.size)}</span>
+                          <span className="min-w-0 flex-1 truncate font-semibold text-[#102D69] dark:text-neutral-100">{doc.name}</span>
+                          <span className="font-mono-tabular shrink-0 text-[#1B1F2B]/70 dark:text-neutral-400">{formatBytes(doc.size)}</span>
                           <button
                             type="button"
                             onClick={() => handleRemoveDocument(doc.name)}
                             aria-label={`${content.contactDrawer.documentUpload.removeLabel}: ${doc.name}`}
-                            className="min-h-[32px] min-w-[32px] inline-flex items-center justify-center rounded-lg text-[#1B1F2B]/70 dark:text-slate-400 hover:text-red-600 cursor-pointer"
+                            className="min-h-[32px] min-w-[32px] inline-flex items-center justify-center rounded-lg text-[#1B1F2B]/70 dark:text-neutral-400 hover:text-red-600 cursor-pointer"
                           >
                             <X className="w-3.5 h-3.5" aria-hidden="true" />
                           </button>
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-1 text-[11px] text-[#1B1F2B]/75 dark:text-slate-400">
+                    <p className="mt-1 text-[11px] text-[#1B1F2B]/75 dark:text-neutral-400">
                       {content.contactDrawer.documentUpload.attachedNote}
                     </p>
                   </div>
@@ -1327,7 +1327,7 @@ export function ConsultationScheduler({
                 <div>
                   <label
                     htmlFor={`${idPrefix}-notes`}
-                    className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1"
+                    className="block text-xs font-bold text-[#102D69] dark:text-neutral-200 mb-1"
                   >
                     {content.consultation.formLabels.notes}
                   </label>
@@ -1337,7 +1337,7 @@ export function ConsultationScheduler({
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder={content.consultation.formLabels.notesPlaceholder}
-                    className="w-full px-3 py-2 rounded-xl bg-white dark:bg-[#060F26] border border-[#102D69]/20 dark:border-slate-700 text-sm text-[#102D69] dark:text-slate-100 focus:outline-none focus:border-[#EC6608]"
+                    className="w-full px-3 py-2 rounded-xl bg-white dark:bg-[#121212] border border-[#102D69]/20 dark:border-neutral-700 text-sm text-[#102D69] dark:text-neutral-100 focus:outline-none focus:border-[#EC6608]"
                   />
                 </div>
 
@@ -1356,7 +1356,7 @@ export function ConsultationScheduler({
                   <button
                     type="button"
                     onClick={() => setCurrentStep(2)}
-                    className="order-3 sm:order-1 min-h-[42px] inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-xs font-semibold text-[#102D69] dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900 cursor-pointer"
+                    className="order-3 sm:order-1 min-h-[42px] inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#102D69]/20 dark:border-neutral-700 bg-white dark:bg-[#121212] text-xs font-semibold text-[#102D69] dark:text-neutral-200 hover:bg-slate-50 dark:hover:bg-neutral-900 cursor-pointer"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
                     <span>{content.consultation.wizard.backBtn}</span>
@@ -1370,7 +1370,7 @@ export function ConsultationScheduler({
                       onClick={handleSendRequest}
                       disabled={sendingRequest}
                       aria-busy={sendingRequest}
-                      className="min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#060F26] font-semibold text-xs sm:text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] dark:hover:bg-[#F6A96F] text-white dark:text-[#121212] font-semibold text-xs sm:text-sm transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {sendingRequest ? (
                         <span className="w-4 h-4 shrink-0 rounded-full border-2 border-current border-t-transparent animate-spin" aria-hidden="true" />
@@ -1384,7 +1384,7 @@ export function ConsultationScheduler({
                       </span>
                     </button>
                   </div>
-                  <p className="mt-2 text-xs text-[#5E6476] dark:text-slate-400 sm:text-right">
+                  <p className="mt-2 text-xs text-[#5E6476] dark:text-neutral-400 sm:text-right">
                     {content.consultation.success.prototypeNote}
                   </p>
                 </div>
@@ -1400,22 +1400,22 @@ export function ConsultationScheduler({
           role="dialog"
           aria-modal="true"
           aria-labelledby="gcal-confirm-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#060F26]/70 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#060F26]/70 dark:bg-black/70 backdrop-blur-sm"
         >
-          <div className="w-full max-w-lg rounded-2xl bg-white dark:bg-[#0B1734] border border-[#102D69]/15 dark:border-slate-700 p-6 sm:p-7 shadow-2xl">
+          <div className="w-full max-w-lg rounded-2xl bg-white dark:bg-[#1C1C1E] border border-[#102D69]/15 dark:border-neutral-700 p-6 sm:p-7 shadow-2xl">
             <h3
               id="gcal-confirm-title"
               className="text-xl font-bold text-[#102D69] dark:text-white mb-2"
             >
               {content.consultation.confirmModal.title}
             </h3>
-            <p className="text-sm text-[#1B1F2B] dark:text-slate-300 mb-5">
+            <p className="text-sm text-[#1B1F2B] dark:text-neutral-300 mb-5">
               {content.consultation.confirmModal.lead}
             </p>
 
-            <dl className="rounded-xl bg-[#F3F5FA] dark:bg-[#060F26] border border-[#102D69]/10 dark:border-slate-800 p-4 space-y-3 text-sm mb-6">
+            <dl className="rounded-xl bg-[#F3F5FA] dark:bg-[#121212] border border-[#102D69]/10 dark:border-neutral-800 p-4 space-y-3 text-sm mb-6">
               <div>
-                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                   {content.consultation.confirmModal.eventLabel}
                 </dt>
                 <dd className="font-semibold text-[#102D69] dark:text-white mt-0.5">
@@ -1423,7 +1423,7 @@ export function ConsultationScheduler({
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                   {content.consultation.confirmModal.whenLabel}
                 </dt>
                 <dd className="font-mono-tabular font-semibold text-[#B84F05] dark:text-[#F28C45] mt-0.5 flex items-center gap-1.5">
@@ -1434,24 +1434,24 @@ export function ConsultationScheduler({
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                   {content.consultation.confirmModal.whereLabel}
                 </dt>
-                <dd className="text-[#1B1F2B] dark:text-slate-200 mt-0.5">
+                <dd className="text-[#1B1F2B] dark:text-neutral-200 mt-0.5">
                   {eventPreview.location}
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                   {content.consultation.confirmModal.attendeesLabel}
                 </dt>
-                <dd className="text-[#1B1F2B] dark:text-slate-200 mt-0.5">
+                <dd className="text-[#1B1F2B] dark:text-neutral-200 mt-0.5">
                   {email.trim()} · office@knopper-stb.at
                 </dd>
               </div>
               {documents.length > 0 && (
                 <div>
-                  <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
+                  <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-neutral-400">
                     {locale === 'de' ? 'Dokument' : 'Attached Document'}
                   </dt>
                   <dd className="text-[#102D69] dark:text-white font-semibold mt-0.5 flex items-center gap-1.5">
@@ -1467,7 +1467,7 @@ export function ConsultationScheduler({
                 type="button"
                 onClick={() => setShowConfirmModal(false)}
                 disabled={submittingEvent}
-                className="min-h-[44px] px-4 py-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 text-sm font-semibold text-[#102D69] dark:text-slate-200 hover:bg-[#F3F5FA] dark:hover:bg-[#060F26] cursor-pointer"
+                className="min-h-[44px] px-4 py-2 rounded-xl border border-[#102D69]/20 dark:border-neutral-700 text-sm font-semibold text-[#102D69] dark:text-neutral-200 hover:bg-[#F3F5FA] dark:hover:bg-[#121212] cursor-pointer"
               >
                 {content.consultation.confirmModal.cancelBtn}
               </button>
@@ -1475,7 +1475,7 @@ export function ConsultationScheduler({
                 type="button"
                 onClick={handleConfirmCreateGoogleEvent}
                 disabled={submittingEvent}
-                className="min-h-[44px] px-5 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#060F26] text-sm font-semibold cursor-pointer disabled:opacity-60"
+                className="min-h-[44px] px-5 py-2 rounded-xl bg-[#B84F05] hover:bg-[#A84604] dark:bg-[#F28C45] text-white dark:text-[#121212] text-sm font-semibold cursor-pointer disabled:opacity-60"
               >
                 {submittingEvent
                   ? content.consultation.actions.creating

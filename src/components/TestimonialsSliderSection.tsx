@@ -39,7 +39,7 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
   return (
     <section
       id="testimonials"
-      className="py-14 sm:py-20 bg-[#F3F5FA]/70 dark:bg-[#0D1424] border-b border-[#102D69]/10 dark:border-slate-800/80"
+      className="py-14 sm:py-20 bg-[#F3F5FA]/70 dark:bg-[#161618] border-b border-[#102D69]/10 dark:border-neutral-800/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Row + Quantitative Rating Summary */}
@@ -51,12 +51,12 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#102D69] dark:text-white tracking-tight mb-3 text-balance">
               {content.testimonials.title}
             </h2>
-            <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-slate-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-[#1B1F2B] dark:text-neutral-300 leading-relaxed">
               {content.testimonials.subtitle}
             </p>
           </div>
 
-          <div className="rounded-xl bg-white dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 px-5 py-4 shrink-0">
+          <div className="rounded-xl bg-white dark:bg-[#1C1C1E] border border-[#102D69]/12 dark:border-neutral-800 px-5 py-4 shrink-0">
             <div className="flex items-center gap-3 mb-1">
               <span className="font-mono-tabular text-2xl font-extrabold text-[#102D69] dark:text-white">
                 {content.testimonials.ratingSummary}
@@ -67,7 +67,7 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
                 ))}
               </div>
             </div>
-            <p className="text-xs font-medium text-[#1B1F2B]/80 dark:text-slate-300 max-w-[260px]">
+            <p className="text-xs font-medium text-[#1B1F2B]/80 dark:text-neutral-300 max-w-[260px]">
               {content.testimonials.ratingCountLabel}
             </p>
           </div>
@@ -82,10 +82,10 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch"
         >
           {/* Active Spotlight Testimonial Card */}
-          <div className="lg:col-span-7 rounded-2xl bg-white dark:bg-[#0B1734] border border-[#102D69]/12 dark:border-slate-800 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+          <div className="lg:col-span-7 rounded-2xl bg-white dark:bg-[#1C1C1E] border border-[#102D69]/12 dark:border-neutral-800 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
             <div>
               {/* Top Meta & Controls Header */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-[#102D69]/10 dark:border-slate-800">
+              <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-[#102D69]/10 dark:border-neutral-800">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-[#EC6608]/10 dark:bg-[#F28C45]/15 text-[#B84F05] dark:text-[#F28C45] flex items-center justify-center shrink-0">
                     <Quote className="w-5 h-5" aria-hidden="true" />
@@ -98,14 +98,14 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="font-mono-tabular text-xs font-bold text-[#102D69]/70 dark:text-slate-300 mr-2">
+                  <span className="font-mono-tabular text-xs font-bold text-[#102D69]/70 dark:text-neutral-300 mr-2">
                     {formattedIndex} / {formattedTotal}
                   </span>
                   <button
                     type="button"
                     onClick={handlePrev}
                     aria-label={content.testimonials.prevLabel}
-                    className="w-11 h-11 inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-slate-700 bg-[#FAFBFD] dark:bg-[#060F26] text-[#102D69] dark:text-slate-100 hover:border-[#EC6608] hover:text-[#B84F05] dark:hover:border-[#F28C45] dark:hover:text-[#F28C45] transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+                    className="w-11 h-11 inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-neutral-700 bg-[#FAFBFD] dark:bg-[#121212] text-[#102D69] dark:text-neutral-100 hover:border-[#EC6608] hover:text-[#B84F05] dark:hover:border-[#F28C45] dark:hover:text-[#F28C45] transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
                   >
                     <ChevronLeft className="w-5 h-5" aria-hidden="true" />
                   </button>
@@ -113,7 +113,7 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
                     type="button"
                     onClick={handleNext}
                     aria-label={content.testimonials.nextLabel}
-                    className="w-11 h-11 inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-slate-700 bg-[#FAFBFD] dark:bg-[#060F26] text-[#102D69] dark:text-slate-100 hover:border-[#EC6608] hover:text-[#B84F05] dark:hover:border-[#F28C45] dark:hover:text-[#F28C45] transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+                    className="w-11 h-11 inline-flex items-center justify-center rounded-xl border border-[#102D69]/15 dark:border-neutral-700 bg-[#FAFBFD] dark:bg-[#121212] text-[#102D69] dark:text-neutral-100 hover:border-[#EC6608] hover:text-[#B84F05] dark:hover:border-[#F28C45] dark:hover:text-[#F28C45] transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
                   >
                     <ChevronRight className="w-5 h-5" aria-hidden="true" />
                   </button>
@@ -133,19 +133,19 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
             </div>
 
             {/* Clean Unboxed Client Attribution Footer */}
-            <div className="pt-5 border-t border-[#102D69]/10 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="pt-5 border-t border-[#102D69]/10 dark:border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <p className="text-base font-bold text-[#102D69] dark:text-white">
                   {current.authorLabel}
                 </p>
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#1B1F2B]/80 dark:text-slate-300 mt-0.5">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#1B1F2B]/80 dark:text-neutral-300 mt-0.5">
                   <span>{current.role}</span>
                   <span aria-hidden="true">·</span>
                   <span>{current.location}</span>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-[#1B1F2B]/75 dark:text-slate-400">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-[#1B1F2B]/75 dark:text-neutral-400">
                 <span>{current.scope}</span>
                 <span aria-hidden="true">·</span>
                 <span className="font-mono-tabular">{current.since}</span>
@@ -172,8 +172,8 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
                     onClick={() => setActiveIndex(idx)}
                     className={`w-full min-h-[44px] text-left rounded-xl p-4 sm:p-5 border transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608] ${
                       isActive
-                        ? 'bg-[#102D69] dark:bg-[#193270] text-white border-[#102D69] dark:border-[#F28C45]/60'
-                        : 'bg-white dark:bg-[#0B1734] text-[#102D69] dark:text-slate-100 border-[#102D69]/10 dark:border-slate-800 hover:border-[#EC6608]/50 dark:hover:border-[#F28C45]/50'
+                        ? 'bg-[#102D69] dark:bg-[#2C2C2E] text-white border-[#102D69] dark:border-[#F28C45]/60'
+                        : 'bg-white dark:bg-[#1C1C1E] text-[#102D69] dark:text-neutral-100 border-[#102D69]/10 dark:border-neutral-800 hover:border-[#EC6608]/50 dark:hover:border-[#F28C45]/50'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-3">
@@ -191,7 +191,7 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
                           <span aria-hidden="true" className="opacity-50">
                             ·
                           </span>
-                          <span className={isActive ? 'text-slate-200 truncate' : 'text-[#1B1F2B]/75 dark:text-slate-400 truncate'}>
+                          <span className={isActive ? 'text-slate-200 truncate' : 'text-[#1B1F2B]/75 dark:text-neutral-400 truncate'}>
                             {item.location}
                           </span>
                         </div>
@@ -202,7 +202,7 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
                           className={`text-xs mt-1 truncate ${
                             isActive
                               ? 'text-slate-200/90'
-                              : 'text-[#1B1F2B]/75 dark:text-slate-400'
+                              : 'text-[#1B1F2B]/75 dark:text-neutral-400'
                           }`}
                         >
                           {item.scope}
@@ -229,12 +229,12 @@ export function TestimonialsSliderSection({ content }: TestimonialsSliderSection
             </div>
 
             {/* Confidentiality Notice Footer (§ 80 WTBG) */}
-            <div className="rounded-xl bg-white/80 dark:bg-[#0B1734]/80 border border-[#102D69]/10 dark:border-slate-800 px-4 py-3 flex items-start gap-2.5">
+            <div className="rounded-xl bg-white/80 dark:bg-[#1C1C1E]/80 border border-[#102D69]/10 dark:border-neutral-800 px-4 py-3 flex items-start gap-2.5">
               <ShieldCheck
                 className="w-4 h-4 text-[#B84F05] dark:text-[#F28C45] shrink-0 mt-0.5"
                 aria-hidden="true"
               />
-              <p className="text-xs text-[#1B1F2B]/85 dark:text-slate-300 leading-relaxed">
+              <p className="text-xs text-[#1B1F2B]/85 dark:text-neutral-300 leading-relaxed">
                 {content.testimonials.confidentialityNote}
               </p>
             </div>
