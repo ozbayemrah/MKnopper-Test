@@ -50,8 +50,17 @@ export function MartinKnopperLogo({
   invertOnDarkBg = false,
   className = '',
 }: MartinKnopperLogoProps) {
-  const size = variant === 'compact' ? 'h-11 sm:h-12' : 'h-16 sm:h-20';
   const alt = `martin knopper ${subLabel}`;
+  // Header: the horizontal logo from the Figma "Logo" component (single colour #EC6608,
+  // readable on light and dark backgrounds)
+  if (variant === 'compact') {
+    return (
+      <span className={`inline-flex select-none ${className}`}>
+        <img src="brand/logo-mk-horizontal.svg" alt={alt} className="h-6 sm:h-8 w-auto" />
+      </span>
+    );
+  }
+  const size = 'h-16 sm:h-20';
   if (invertOnDarkBg) {
     return (
       <img src="brand/logo-mk-dark.svg" alt={alt} className={`${size} w-auto select-none ${className}`} />

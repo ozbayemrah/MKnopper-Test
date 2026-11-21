@@ -205,18 +205,13 @@ export function BottomBarAndFooter({
                     href={`#${item.id}`}
                     onClick={() => onCloseMobileMenu()}
                     aria-current={isActive ? 'true' : undefined}
-                    className={`flex items-center justify-between min-h-[48px] px-4 rounded-xl border-l-4 text-sm font-bold transition-colors ${
+                    className={`flex items-center min-h-[48px] px-4 rounded-xl bg-[#F3F5FA] dark:bg-[#060F26] text-sm font-bold transition-colors ${
                       isActive
-                        ? 'border-[#EC6608] bg-[#FEF4EC] text-[#102D69] dark:bg-[#F28C45]/15 dark:text-white'
-                        : 'border-transparent bg-[#F3F5FA] text-[#102D69] dark:bg-[#060F26] dark:text-white'
+                        ? 'text-[#B84F05] dark:text-[#F28C45]'
+                        : 'text-[#102D69] dark:text-white'
                     }`}
                   >
                     <span>{item.label}</span>
-                    {isActive && (
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-[#B84F05] dark:text-[#F28C45]">
-                        {content.mobileBar.currentLabel}
-                      </span>
-                    )}
                   </a>
                 );
               })}

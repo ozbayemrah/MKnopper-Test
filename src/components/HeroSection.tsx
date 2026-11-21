@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight, CalendarCheck, Moon, Sun } from 'lucide-react';
 import { PracticeContent } from '../data/content';
 import { Locale, Theme } from '../types/app';
-import { EditorialImage, ParagraphSeal } from './BrandMark';
+import { EditorialImage } from './BrandMark';
 
 interface HeroSectionProps {
   content: PracticeContent;
@@ -27,7 +27,13 @@ export function HeroSection({
       className="relative overflow-hidden border-b border-[#102D69]/10 dark:border-slate-800/80"
     >
       {/* Subtle geometric paragraph seal motif */}
-      <ParagraphSeal className="pointer-events-none absolute -right-24 -top-12 w-80 h-80 text-[#F3F5FA] dark:text-[#0B1734] opacity-90" />
+      {/* LogoMark from the Figma components, as a low-opacity background element */}
+      <img
+        src="brand/logomark.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -right-24 -top-12 w-80 h-80 opacity-[0.07] dark:opacity-[0.1]"
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 sm:pb-16 lg:pb-20">
         {/* Workspace Utility Toolbar: Single-line on Mobile & Desktop with truncated office badge + DE/EN + Square Theme Icon */}

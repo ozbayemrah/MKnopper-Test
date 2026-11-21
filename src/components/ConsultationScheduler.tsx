@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   AlertCircle,
   ArrowLeft,
@@ -11,6 +11,7 @@ import {
   Download,
   ExternalLink,
   FileText,
+  FolderUp,
   Info,
   LogOut,
   MapPin,
@@ -47,9 +48,6 @@ interface ConsultationSchedulerProps {
   isModal?: boolean;
   onCloseModal?: () => void;
   onNotify?: (message: string) => void;
-  attachedDocument?: PreCallDocument | null;
-  onAttachDocument?: (doc: PreCallDocument) => void;
-  onRemoveDocument?: () => void;
 }
 
 function formatBytes(bytes: number): string {
@@ -58,20 +56,13 @@ function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+// Weekdays only, 30-min slots between 9:00 and 16:00 (last slot 15:30–16:00)
 const TIME_SLOTS = [
-  '09:00',
-  '09:30',
-  '10:00',
-  '10:30',
-  '11:00',
-  '11:30',
-  '14:00',
-  '14:30',
-  '15:00',
-  '15:30',
-  '16:00',
-  '16:30',
+  '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00',
+  '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30',
 ];
+
+const BOOKABLE_DAYS = 10; // two working weeks
 
 const TOPIC_KEYS: ConsultationTopic[] = [
   'sole_proprietor',
@@ -82,16 +73,22 @@ const TOPIC_KEYS: ConsultationTopic[] = [
   'general',
 ];
 
-function getNextBusinessDateString(): string {
-  const date = new Date();
-  date.setDate(date.getDate() + 1);
-  while (date.getDay() === 0 || date.getDay() === 6) {
-    date.setDate(date.getDate() + 1);
-  }
+function toIsoDate(date: Date): string {
   const yyyy = date.getFullYear();
   const mm = String(date.getMonth() + 1).padStart(2, '0');
   const dd = String(date.getDate()).padStart(2, '0');
   return `${yyyy}-${mm}-${dd}`;
+}
+
+/** The next `count` weekdays (Mon–Fri), starting tomorrow. */
+function getUpcomingBusinessDays(count: number): string[] {
+  const days: string[] = [];
+  const date = new Date();
+  while (days.length < count) {
+    date.setDate(date.getDate() + 1);
+    if (date.getDay() !== 0 && date.getDay() !== 6) days.push(toIsoDate(date));
+  }
+  return days;
 }
 
 export function ConsultationScheduler({
@@ -100,15 +97,13 @@ export function ConsultationScheduler({
   isModal = false,
   onCloseModal,
   onNotify,
-  attachedDocument,
-  onAttachDocument,
-  onRemoveDocument,
 }: ConsultationSchedulerProps) {
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [consultType, setConsultType] = useState<ConsultationType>('initial');
   const [topic, setTopic] = useState<ConsultationTopic | ''>('');
   const [format, setFormat] = useState<ConsultationFormat>('video');
-  const [selectedDate, setSelectedDate] = useState<string>(getNextBusinessDateString);
+  const bookableDays = useMemo(() => getUpcomingBusinessDays(BOOKABLE_DAYS), []);
+  const [selectedDate, setSelectedDate] = useState<string>(() => bookableDays[0]);
   const [selectedSlot, setSelectedSlot] = useState<string>('');
 
   const [name, setName] = useState('');
@@ -121,8 +116,7 @@ export function ConsultationScheduler({
     phone: boolean;
   }>({ name: false, email: false, phone: false });
   const [submitAttempted, setSubmitAttempted] = useState(false);
-  const [localDocument, setLocalDocument] = useState<PreCallDocument | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [documents, setDocuments] = useState<PreCallDocument[]>([]);
 
   const effectiveTopic: ConsultationTopic = topic || 'general';
   const selectedTypeObj =
@@ -166,35 +160,35 @@ export function ConsultationScheduler({
   const showPhoneError =
     (touched.phone || submitAttempted || Boolean(phone.trim())) && Boolean(phoneError);
 
-  const isControlledDocument = attachedDocument !== undefined && Boolean(onAttachDocument);
-  const activeDocument = isControlledDocument ? attachedDocument : localDocument;
-  const fileInputId = isModal ? 'modal-document-upload' : 'inline-document-upload';
   const idPrefix = isModal ? 'modal' : 'inline';
+  const fileInputId = `${idPrefix}-document-upload`;
+  const totalDocumentBytes = documents.reduce((sum, d) => sum + d.size, 0);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const nextDoc: PreCallDocument = {
-      name: file.name,
+  // Prototype: files are only listed, never uploaded or sent anywhere
+  const handleFilesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const picked = Array.from(e.target.files ?? []).map((file) => ({
+      name: (file as File & { webkitRelativePath?: string }).webkitRelativePath || file.name,
       size: file.size,
       type: file.type,
-    };
-    if (onAttachDocument) {
-      onAttachDocument(nextDoc);
-    } else {
-      setLocalDocument(nextDoc);
-    }
-    onNotify?.(content.contactDrawer.documentUpload.toastAttached);
+    }));
     e.target.value = '';
+    if (picked.length === 0) return;
+    setDocuments((prev) => {
+      const known = new Set(prev.map((d) => d.name));
+      return [...prev, ...picked.filter((d) => !known.has(d.name))];
+    });
+    onNotify?.(content.contactDrawer.documentUpload.toastAttached);
   };
 
-  const handleClearDocument = () => {
-    if (onRemoveDocument) {
-      onRemoveDocument();
-    } else {
-      setLocalDocument(null);
-    }
+  const handleRemoveDocument = (docName: string) => {
+    setDocuments((prev) => prev.filter((d) => d.name !== docName));
   };
+
+  // The free initial consultation is video only; in person is reserved for the paid session
+  const inPersonBlocked = consultType === 'initial';
+  useEffect(() => {
+    if (inPersonBlocked && format === 'graz') setFormat('video');
+  }, [inPersonBlocked, format]);
 
   // Google Calendar OAuth & Availability State
   const [googleUser, setGoogleUser] = useState<User | null>(null);
@@ -310,8 +304,8 @@ export function ConsultationScheduler({
       `${content.consultation.formLabels.name.replace(' *', '')}: ${name}`,
       `${content.consultation.formLabels.email.replace(' *', '')}: ${email}`,
       phone ? `${content.consultation.formLabels.phone}: ${phone}` : '',
-      activeDocument
-        ? `${locale === 'de' ? 'Vorgemerktes Dokument' : 'Pre-call document'}: ${activeDocument.name} (${formatBytes(activeDocument.size)})`
+      documents.length > 0
+        ? `${locale === 'de' ? 'Dokumente' : 'Documents'}: ${documents.map((d) => d.name).join(', ')} (${formatBytes(totalDocumentBytes)})`
         : '',
       notes ? `\n${notes}` : '',
       '\n---',
@@ -472,6 +466,7 @@ export function ConsultationScheduler({
     setApiError(null);
     setTopic('');
     setSelectedSlot('');
+    setDocuments([]);
     setCurrentStep(1);
   };
 
@@ -583,15 +578,15 @@ export function ConsultationScheduler({
             <p className="text-xs sm:text-sm text-[#1B1F2B] dark:text-slate-300">
               {eventPreview.location}
             </p>
-            {activeDocument && (
-              <p className="pt-1 flex items-center gap-2 text-xs font-semibold text-[#102D69] dark:text-slate-200">
+            {documents.map((doc) => (
+              <p key={doc.name} className="pt-1 flex items-center gap-2 text-xs font-semibold text-[#102D69] dark:text-slate-200">
                 <FileText className="w-4 h-4 text-[#B84F05] dark:text-[#F28C45] shrink-0" aria-hidden="true" />
-                <span className="truncate">{activeDocument.name}</span>
+                <span className="truncate">{doc.name}</span>
                 <span className="font-mono-tabular text-[#1B1F2B]/70 dark:text-slate-400 shrink-0">
-                  ({formatBytes(activeDocument.size)})
+                  ({formatBytes(doc.size)})
                 </span>
               </p>
-            )}
+            ))}
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -729,15 +724,21 @@ export function ConsultationScheduler({
                   <div className="grid grid-cols-2 gap-2">
                     {content.consultation.formats.map((fmt) => {
                       const active = format === fmt.id;
+                      const blocked = fmt.id === 'graz' && inPersonBlocked;
                       return (
                         <button
                           key={fmt.id}
                           type="button"
+                          disabled={blocked}
+                          aria-pressed={active}
+                          aria-describedby={blocked ? `${idPrefix}-inperson-note` : undefined}
                           onClick={() => setFormat(fmt.id)}
-                          className={`min-h-[44px] px-3 py-2 rounded-xl border text-left text-xs font-semibold flex items-center gap-2 transition-colors cursor-pointer ${
-                            active
-                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] border-[#EC6608]'
-                              : 'bg-white dark:bg-[#060F26] text-[#102D69] dark:text-slate-200 border-[#102D69]/20 dark:border-slate-700 hover:border-[#EC6608]/50'
+                          className={`min-h-[44px] px-3 py-2 rounded-xl border text-left text-xs font-semibold flex items-center gap-2 transition-colors ${
+                            blocked
+                              ? 'bg-slate-100 dark:bg-slate-800/50 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed'
+                              : active
+                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] border-[#EC6608] cursor-pointer'
+                              : 'bg-white dark:bg-[#060F26] text-[#102D69] dark:text-slate-200 border-[#102D69]/20 dark:border-slate-700 hover:border-[#EC6608]/50 cursor-pointer'
                           }`}
                         >
                           {fmt.id === 'video' ? (
@@ -750,6 +751,14 @@ export function ConsultationScheduler({
                       );
                     })}
                   </div>
+                  {inPersonBlocked && (
+                    <p
+                      id={`${idPrefix}-inperson-note`}
+                      className="mt-1.5 text-[11px] sm:text-xs text-[#1B1F2B]/80 dark:text-slate-400 leading-snug"
+                    >
+                      {content.consultation.inPersonPaidOnly}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -973,20 +982,42 @@ export function ConsultationScheduler({
               {/* Date Input + Time Slots */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                 <div className="md:col-span-4">
-                  <label
-                    htmlFor={`${idPrefix}-date`}
+                  <span
+                    id={`${idPrefix}-date-label`}
                     className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1.5"
                   >
                     {content.consultation.dateLabel}
-                  </label>
-                  <input
-                    id={`${idPrefix}-date`}
-                    type="date"
-                    value={selectedDate}
-                    min={new Date().toISOString().split('T')[0]}
-                    onChange={(e) => setSelectedDate(e.target.value)}
-                    className="w-full min-h-[42px] px-3 py-2 rounded-xl bg-white dark:bg-[#060F26] border border-[#102D69]/20 dark:border-slate-700 font-mono-tabular text-sm text-[#102D69] dark:text-slate-100 focus:outline-none focus:border-[#EC6608]"
-                  />
+                  </span>
+                  <div
+                    role="radiogroup"
+                    aria-labelledby={`${idPrefix}-date-label`}
+                    className="grid grid-cols-5 md:grid-cols-2 gap-1.5"
+                  >
+                    {bookableDays.map((day) => {
+                      const d = new Date(`${day}T12:00:00`);
+                      const active = selectedDate === day;
+                      const dateLocale = locale === 'de' ? 'de-AT' : 'en-GB';
+                      const weekday = new Intl.DateTimeFormat(dateLocale, { weekday: 'short' }).format(d);
+                      const dayMonth = new Intl.DateTimeFormat(dateLocale, { day: '2-digit', month: '2-digit' }).format(d);
+                      return (
+                        <button
+                          key={day}
+                          type="button"
+                          role="radio"
+                          aria-checked={active}
+                          onClick={() => setSelectedDate(day)}
+                          className={`min-h-[44px] px-1.5 py-1 rounded-xl border font-mono-tabular text-xs font-semibold flex flex-col items-center justify-center leading-tight transition-colors cursor-pointer ${
+                            active
+                              ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#060F26] border-[#EC6608]'
+                              : 'bg-white dark:bg-[#060F26] text-[#102D69] dark:text-slate-200 border-[#102D69]/15 dark:border-slate-700 hover:border-[#EC6608]/60'
+                          }`}
+                        >
+                          <span className="text-[10px] font-bold uppercase tracking-wide opacity-80">{weekday}</span>
+                          <span>{dayMonth}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                   <p className="mt-1.5 text-[11px] text-[#1B1F2B]/75 dark:text-slate-400">
                     {content.consultation.timezoneNote}
                   </p>
@@ -1001,7 +1032,7 @@ export function ConsultationScheduler({
                       {checkingBusy ? '...' : content.consultation.wizard.selectDateTimeHint}
                     </span>
                   </div>
-                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  <div className="grid grid-cols-4 gap-2">
                     {slotStatuses.map(({ time, busy }) => {
                       const active = selectedSlot === time;
                       return (
@@ -1228,7 +1259,69 @@ export function ConsultationScheduler({
                       </p>
                     )}
                   </div>
+
+                  {/* Optional documents: single files or a whole folder (prototype: listed only, not sent) */}
+                  <div>
+                    <span className="block text-xs font-bold text-[#102D69] dark:text-slate-200 mb-1">
+                      {content.contactDrawer.documentUpload.label}
+                    </span>
+                    <div className="grid grid-cols-2 gap-2">
+                      <label
+                        htmlFor={fileInputId}
+                        className="min-h-[42px] inline-flex items-center justify-center gap-1.5 px-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-xs font-semibold text-[#102D69] dark:text-slate-100 hover:border-[#EC6608]/60 cursor-pointer focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#EC6608]"
+                      >
+                        <Upload className="w-4 h-4 shrink-0" aria-hidden="true" />
+                        <span>{content.contactDrawer.documentUpload.buttonLabel}</span>
+                        <input id={fileInputId} type="file" multiple aria-describedby={`${fileInputId}-hint`} onChange={handleFilesChange} className="sr-only" />
+                      </label>
+                      <label
+                        htmlFor={`${fileInputId}-folder`}
+                        className="min-h-[42px] inline-flex items-center justify-center gap-1.5 px-2 rounded-xl border border-[#102D69]/20 dark:border-slate-700 bg-white dark:bg-[#060F26] text-xs font-semibold text-[#102D69] dark:text-slate-100 hover:border-[#EC6608]/60 cursor-pointer focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#EC6608]"
+                      >
+                        <FolderUp className="w-4 h-4 shrink-0" aria-hidden="true" />
+                        <span>{content.contactDrawer.documentUpload.folderLabel}</span>
+                        <input
+                          aria-describedby={`${fileInputId}-hint`}
+                          id={`${fileInputId}-folder`}
+                          // Folder picking needs the non-standard webkitdirectory attribute
+                          ref={(el) => el?.setAttribute('webkitdirectory', '')}
+                          type="file"
+                          multiple
+                          onChange={handleFilesChange}
+                          className="sr-only"
+                        />
+                      </label>
+                    </div>
+                    <p id={`${fileInputId}-hint`} className="mt-1 text-[11px] text-[#1B1F2B]/75 dark:text-slate-400 leading-snug">
+                      {content.contactDrawer.documentUpload.prompt}
+                    </p>
+                  </div>
                 </div>
+
+                {documents.length > 0 && (
+                  <div className="rounded-xl bg-white dark:bg-[#060F26] border border-[#102D69]/12 dark:border-slate-800 px-3 py-2">
+                    <ul className="max-h-32 overflow-y-auto divide-y divide-[#102D69]/10 dark:divide-slate-800">
+                      {documents.map((doc) => (
+                        <li key={doc.name} className="flex items-center gap-2 py-1.5 text-xs">
+                          <FileText className="w-3.5 h-3.5 shrink-0 text-[#B84F05] dark:text-[#F28C45]" aria-hidden="true" />
+                          <span className="min-w-0 flex-1 truncate font-semibold text-[#102D69] dark:text-slate-100">{doc.name}</span>
+                          <span className="font-mono-tabular shrink-0 text-[#1B1F2B]/70 dark:text-slate-400">{formatBytes(doc.size)}</span>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveDocument(doc.name)}
+                            aria-label={`${content.contactDrawer.documentUpload.removeLabel}: ${doc.name}`}
+                            className="min-h-[32px] min-w-[32px] inline-flex items-center justify-center rounded-lg text-[#1B1F2B]/70 dark:text-slate-400 hover:text-red-600 cursor-pointer"
+                          >
+                            <X className="w-3.5 h-3.5" aria-hidden="true" />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-1 text-[11px] text-[#1B1F2B]/75 dark:text-slate-400">
+                      {content.contactDrawer.documentUpload.attachedNote}
+                    </p>
+                  </div>
+                )}
 
                 {/* Compact Notes */}
                 <div>
@@ -1356,14 +1449,14 @@ export function ConsultationScheduler({
                   {email.trim()} · office@knopper-stb.at
                 </dd>
               </div>
-              {activeDocument && (
+              {documents.length > 0 && (
                 <div>
                   <dt className="text-xs font-bold uppercase tracking-wider text-[#1B1F2B]/70 dark:text-slate-400">
                     {locale === 'de' ? 'Dokument' : 'Attached Document'}
                   </dt>
                   <dd className="text-[#102D69] dark:text-white font-semibold mt-0.5 flex items-center gap-1.5">
                     <FileText className="w-3.5 h-3.5 text-[#B84F05] dark:text-[#F28C45] shrink-0" aria-hidden="true" />
-                    <span>{activeDocument.name}</span>
+                    <span>{documents.map((d) => d.name).join(', ')}</span>
                   </dd>
                 </div>
               )}

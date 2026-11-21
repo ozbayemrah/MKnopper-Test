@@ -25,7 +25,7 @@ All visible copy comes from the client's material (in `../Customer Logos and ima
 **Do not paraphrase it.** The first AI Studio export invented headlines, testimonials, a rating and an FAQ; those were removed.
 
 ### Booking flow states
-Topic selection, time slots, inline validation (field-level error with icon + text, plus a summary), a "Wird gesendet …" loading state, a confirmation screen, and an optional `.ics` calendar download.
+Topic selection, weekday dates (Mon–Fri, next two weeks) and 30-min slots between 9:00 and 16:00, in person disabled for the free first consultation (video only), optional file/folder upload (listed only, never sent), inline validation (field-level error with icon + text, plus a summary), a "Wird gesendet …" loading state, a confirmation screen, and an optional `.ics` calendar download.
 There is also an optional "Mit Google anmelden" path (Firebase Google sign-in). It checks the *visitor's own* calendar for conflicts and can add the slot to it. In this prototype it never invites the practice's address.
 
 ## Brand and design system

@@ -226,6 +226,7 @@ export interface PracticeContent {
     dateLabel: string;
     timeLabel: string;
     timezoneNote: string;
+    inPersonPaidOnly: string;
     googleCheckHeading: string;
     googleCheckConnected: string;
     googleSignInBtn: string;
@@ -296,7 +297,9 @@ export interface PracticeContent {
     closeLabel: string;
     documentUpload: {
       prompt: string;
+      label: string;
       buttonLabel: string;
+      folderLabel: string;
       replaceLabel: string;
       removeLabel: string;
       attachedNote: string;
@@ -932,9 +935,10 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
           detail: 'Grieskai 56 / 6, 8020 Graz',
         },
       ],
-      dateLabel: 'Datum wählen',
-      timeLabel: 'Uhrzeit wählen (30 Min.)',
+      dateLabel: 'Datum wählen (Mo–Fr)',
+      timeLabel: 'Uhrzeit wählen (30 Min., 9–16 Uhr)',
       timezoneNote: 'Alle Zeiten in Ortszeit Österreich (Europe/Vienna).',
+      inPersonPaidOnly: 'Persönlich in Graz nur bei der Einzelberatung (kostenpflichtig). Das kostenlose Erstgespräch findet per Videocall statt.',
       googleCheckHeading: 'Google Kalender Live-Verfügbarkeit',
       googleCheckConnected: 'Mit Google Kalender verbunden — belegte Zeiten in Ihrem Kalender werden markiert.',
       googleSignInBtn: 'Mit Google anmelden & Verfügbarkeit prüfen',
@@ -948,7 +952,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         emailPlaceholder: 'name@beispiel.at',
         phone: 'Telefonnummer (optional)',
         phonePlaceholder: '+43 ...',
-        notes: 'Kurze Schilderung Ihres Anliegens (bitte keine vertraulichen Dokumente anhängen)',
+        notes: 'Kurze Schilderung Ihres Anliegens',
         notesPlaceholder: 'z. B. Freischaffende Künstlerin, geplante Werkverkäufe in die Schweiz und nach Deutschland...',
       },
       validationError: 'Bitte überprüfen Sie die markierten Felder vor dem Absenden.',
@@ -1009,7 +1013,9 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       closeLabel: 'Kontaktleiste schließen',
       documentUpload: {
         prompt: 'Falls wir vor dem Gespräch ein Dokument prüfen sollen, laden Sie es bitte hoch.',
-        buttonLabel: 'Dokument hochladen',
+        label: 'Dokumente (optional)',
+        buttonLabel: 'Dateien hochladen',
+        folderLabel: 'Ordner hochladen',
         replaceLabel: 'Anderes Dokument wählen',
         removeLabel: 'Entfernen',
         attachedNote: 'Für die Gesprächsvorbereitung vorgemerkt · Vertrauliche Belege anschließend verschlüsselt via IURIO.',
@@ -1707,9 +1713,10 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
           detail: 'Grieskai 56 / 6, 8020 Graz, Austria',
         },
       ],
-      dateLabel: 'Select date',
-      timeLabel: 'Select time (30 min)',
+      dateLabel: 'Select date (Mon–Fri)',
+      timeLabel: 'Select time (30 min, 9:00–16:00)',
       timezoneNote: 'All times shown in Austria local time (Europe/Vienna).',
+      inPersonPaidOnly: 'In person in Graz only for the paid advisory session. The free initial consultation takes place by video call.',
       googleCheckHeading: 'Google Calendar Live Availability',
       googleCheckConnected: 'Connected to Google Calendar — conflicts in your schedule are flagged below.',
       googleSignInBtn: 'Sign in with Google to check availability',
@@ -1723,7 +1730,7 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
         emailPlaceholder: 'name@example.at',
         phone: 'Phone Number (optional)',
         phonePlaceholder: '+43 ...',
-        notes: 'Brief outline of your question (please do not attach confidential tax records)',
+        notes: 'Brief outline of your question',
         notesPlaceholder: 'e.g. Visual artist selling works to galleries in Germany and Switzerland...',
       },
       validationError: 'Please review the highlighted fields before submitting.',
@@ -1784,7 +1791,9 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       closeLabel: 'Close contact drawer',
       documentUpload: {
         prompt: 'If you have a document we need to check before the call, please upload.',
-        buttonLabel: 'Upload Document',
+        label: 'Documents (optional)',
+        buttonLabel: 'Upload files',
+        folderLabel: 'Upload folder',
         replaceLabel: 'Replace Document',
         removeLabel: 'Remove',
         attachedNote: 'Ready for pre-call review · Confidential files are exchanged encrypted via IURIO.',

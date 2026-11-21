@@ -6,7 +6,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { ArrowUp, CalendarCheck, CheckCircle2, X } from 'lucide-react';
 import { PRACTICE_CONTENT } from './data/content';
-import { Locale, PreCallDocument, Theme } from './types/app';
+import { Locale, Theme } from './types/app';
 import { TopNav } from './components/TopNav';
 import { HeroSection } from './components/HeroSection';
 import { ServicesSection } from './components/ServicesSection';
@@ -47,7 +47,6 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('top');
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [attachedDocument, setAttachedDocument] = useState<PreCallDocument | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -299,9 +298,6 @@ export default function App() {
               isModal
               onCloseModal={() => setConsultationModalOpen(false)}
               onNotify={showToast}
-              attachedDocument={attachedDocument}
-              onAttachDocument={setAttachedDocument}
-              onRemoveDocument={() => setAttachedDocument(null)}
             />
           </div>
         </div>
