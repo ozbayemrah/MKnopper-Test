@@ -24,8 +24,26 @@ export function FeeScheduleSection({ content }: FeeScheduleSectionProps) {
           </p>
         </div>
 
-        {/* Fee Schedule Table */}
-        <div className="overflow-x-auto rounded-2xl border border-[#102D69]/12 dark:border-neutral-800 bg-white dark:bg-[#1C1C1E] mb-8">
+        {/* Fee Schedule — stacked list on phones */}
+        <ul className="sm:hidden rounded-2xl border border-[#102D69]/12 dark:border-neutral-800 bg-white dark:bg-[#1C1C1E] divide-y divide-[#102D69]/10 dark:divide-neutral-800 mb-8 overflow-hidden">
+          {content.fees.rows.map((row) => (
+            <li
+              key={row.service}
+              className={`px-4 py-3.5 ${row.accent ? 'bg-[#EC6608]/8 dark:bg-[#F28C45]/12' : ''}`}
+            >
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="text-sm font-semibold text-[#102D69] dark:text-white">{row.service}</span>
+                <span className="font-mono-tabular text-base font-bold text-[#B84F05] dark:text-[#F28C45] whitespace-nowrap">
+                  {row.rate}
+                </span>
+              </div>
+              {row.unit && <p className="mt-0.5 text-xs text-[#1B1F2B] dark:text-neutral-300">{row.unit}</p>}
+            </li>
+          ))}
+        </ul>
+
+        {/* Fee Schedule Table — sm and up */}
+        <div className="hidden sm:block overflow-x-auto rounded-2xl border border-[#102D69]/12 dark:border-neutral-800 bg-white dark:bg-[#1C1C1E] mb-8">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-[#102D69]/12 dark:border-neutral-800 bg-[#F3F5FA] dark:bg-[#121212]">

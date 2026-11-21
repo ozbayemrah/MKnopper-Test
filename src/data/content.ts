@@ -226,7 +226,6 @@ export interface PracticeContent {
     dateLabel: string;
     timeLabel: string;
     timezoneNote: string;
-    inPersonPaidOnly: string;
     googleCheckHeading: string;
     googleCheckConnected: string;
     googleSignInBtn: string;
@@ -951,7 +950,6 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       dateLabel: 'Datum wählen (Mo–Fr)',
       timeLabel: 'Uhrzeit wählen (30 Min., 9–16 Uhr)',
       timezoneNote: 'Alle Zeiten in Ortszeit Österreich (Europe/Vienna).',
-      inPersonPaidOnly: 'Persönlich in Graz nur bei der Einzelberatung (kostenpflichtig). Das kostenlose Erstgespräch findet per Videocall statt.',
       googleCheckHeading: 'Google Kalender Live-Verfügbarkeit',
       googleCheckConnected: 'Mit Google Kalender verbunden — belegte Zeiten in Ihrem Kalender werden markiert.',
       googleSignInBtn: 'Mit Google anmelden & Verfügbarkeit prüfen',
@@ -1754,7 +1752,6 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       dateLabel: 'Select date (Mon–Fri)',
       timeLabel: 'Select time (30 min, 9:00–16:00)',
       timezoneNote: 'All times shown in Austria local time (Europe/Vienna).',
-      inPersonPaidOnly: 'In person in Graz only for the paid advisory session. The free initial consultation takes place by video call.',
       googleCheckHeading: 'Google Calendar Live Availability',
       googleCheckConnected: 'Connected to Google Calendar — conflicts in your schedule are flagged below.',
       googleSignInBtn: 'Sign in with Google to check availability',

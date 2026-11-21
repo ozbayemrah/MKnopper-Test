@@ -184,12 +184,6 @@ export function ConsultationScheduler({
     setDocuments((prev) => prev.filter((d) => d.name !== docName));
   };
 
-  // The free initial consultation is video only; in person is reserved for the paid session
-  const inPersonBlocked = consultType === 'initial';
-  useEffect(() => {
-    if (inPersonBlocked && format === 'graz') setFormat('video');
-  }, [inPersonBlocked, format]);
-
   // Google Calendar OAuth & Availability State
   const [googleUser, setGoogleUser] = useState<User | null>(null);
   const [accessToken, setAccessToken] = useState<string | null>(getCalendarAccessToken);
@@ -724,19 +718,14 @@ export function ConsultationScheduler({
                   <div className="grid grid-cols-2 gap-2">
                     {content.consultation.formats.map((fmt) => {
                       const active = format === fmt.id;
-                      const blocked = fmt.id === 'graz' && inPersonBlocked;
                       return (
                         <button
                           key={fmt.id}
                           type="button"
-                          disabled={blocked}
                           aria-pressed={active}
-                          aria-describedby={blocked ? `${idPrefix}-inperson-note` : undefined}
                           onClick={() => setFormat(fmt.id)}
                           className={`min-h-[44px] px-3 py-2 rounded-xl border text-left text-xs font-semibold flex items-center gap-2 transition-colors ${
-                            blocked
-                              ? 'bg-slate-100 dark:bg-neutral-800/50 border-slate-200 dark:border-neutral-800 text-slate-400 dark:text-neutral-500 cursor-not-allowed'
-                              : active
+                            active
                               ? 'bg-[#B84F05] dark:bg-[#F28C45] text-white dark:text-[#121212] border-[#EC6608] cursor-pointer'
                               : 'bg-white dark:bg-[#121212] text-[#102D69] dark:text-neutral-200 border-[#102D69]/20 dark:border-neutral-700 hover:border-[#EC6608]/50 cursor-pointer'
                           }`}
@@ -751,14 +740,6 @@ export function ConsultationScheduler({
                       );
                     })}
                   </div>
-                  {inPersonBlocked && (
-                    <p
-                      id={`${idPrefix}-inperson-note`}
-                      className="mt-1.5 text-[11px] sm:text-xs text-[#1B1F2B]/80 dark:text-neutral-400 leading-snug"
-                    >
-                      {content.consultation.inPersonPaidOnly}
-                    </p>
-                  )}
                 </div>
               </div>
 
