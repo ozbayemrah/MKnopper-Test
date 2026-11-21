@@ -326,6 +326,19 @@ export interface PracticeContent {
     privacy: string;
     consultCta: string;
   };
+  legal: {
+    imprintLink: string;
+    termsLink: string;
+    loginShort: string;
+    loginLabel: string;
+    dialogTitle: string;
+    closeLabel: string;
+    imprintHeading: string;
+    disclosure: string;
+    rows: Array<{ label: string; value: string; href?: string }>;
+    termsHeading: string;
+    termsText: string;
+  };
   seo: Record<SeoSectionKey, SectionSeoMeta>;
 }
 
@@ -1041,6 +1054,31 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       imprint: 'Standort Graz · Österreichisches Recht',
       privacy: 'DSGVO · Verschlüsselt über IURIO & BMD Cloud (ISO 27001)',
       consultCta: 'Erstgespräch anfragen',
+    },
+    legal: {
+      imprintLink: 'Impressum',
+      termsLink: 'AGB',
+      loginShort: 'Login',
+      loginLabel: 'Klient:innen-Login (IURIO)',
+      dialogTitle: 'Impressum & AGB',
+      closeLabel: 'Schließen',
+      imprintHeading: 'Impressum',
+      disclosure: 'Offenlegung gemäß § 5 E-Commerce-Gesetz',
+      rows: [
+        { label: '', value: 'MMag. Martin Knopper' },
+        { label: '', value: 'Steuerberater und Wirtschaftstreuhänder' },
+        { label: 'Anschrift', value: 'Grieskai 56 / 6, 8020 Graz' },
+        { label: 'Telefon', value: '+43 316 38 60 97', href: 'tel:+43316386097' },
+        { label: 'E-Mail', value: 'office@knopper-stb.at', href: 'mailto:office@knopper-stb.at' },
+        { label: 'Unternehmensform', value: 'Einzelunternehmen' },
+        { label: 'Gerichtsstand', value: 'Graz' },
+        { label: 'WT-Code', value: '230061' },
+        { label: 'UID', value: 'ATU79946025' },
+        { label: 'Kammerzugehörigkeit', value: 'Kammer der Steuerberater:innen und Wirtschaftsprüfer:innen' },
+        { label: 'Standesrecht', value: 'WTBG 2017, abrufbar unter www.ris.bka.gv.at', href: 'https://www.ris.bka.gv.at/' },
+      ],
+      termsHeading: 'Allgemeine Auftragsbedingungen',
+      termsText: 'Informationen zu unseren allgemeinen Auftragsbedingungen (AAB) stellen wir auf Anfrage gerne zur Verfügung.',
     },
     seo: {
       top: {
@@ -1819,6 +1857,31 @@ export const PRACTICE_CONTENT: Record<Locale, PracticeContent> = {
       imprint: 'Graz, Austria · Austrian Professional Standards',
       privacy: 'GDPR · Encrypted via IURIO & BMD Cloud (ISO 27001)',
       consultCta: 'Request Initial Consultation',
+    },
+    legal: {
+      imprintLink: 'Legal notice',
+      termsLink: 'Terms',
+      loginShort: 'Login',
+      loginLabel: 'Client login (IURIO)',
+      dialogTitle: 'Legal notice & terms',
+      closeLabel: 'Close',
+      imprintHeading: 'Legal notice (Impressum)',
+      disclosure: 'Disclosure pursuant to § 5 Austrian E-Commerce Act (ECG)',
+      rows: [
+        { label: '', value: 'MMag. Martin Knopper' },
+        { label: '', value: 'Steuerberater und Wirtschaftstreuhänder (tax advisor)' },
+        { label: 'Address', value: 'Grieskai 56 / 6, 8020 Graz, Austria' },
+        { label: 'Phone', value: '+43 316 38 60 97', href: 'tel:+43316386097' },
+        { label: 'Email', value: 'office@knopper-stb.at', href: 'mailto:office@knopper-stb.at' },
+        { label: 'Legal form', value: 'Sole proprietorship (Einzelunternehmen)' },
+        { label: 'Place of jurisdiction', value: 'Graz' },
+        { label: 'WT code', value: '230061' },
+        { label: 'VAT ID', value: 'ATU79946025' },
+        { label: 'Chamber', value: 'Kammer der Steuerberater:innen und Wirtschaftsprüfer:innen' },
+        { label: 'Professional law', value: 'WTBG 2017, available at www.ris.bka.gv.at', href: 'https://www.ris.bka.gv.at/' },
+      ],
+      termsHeading: 'General terms of engagement (AAB)',
+      termsText: 'Information on our general terms of engagement (AAB) is available on request.',
     },
     seo: {
       top: {

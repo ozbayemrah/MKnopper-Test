@@ -1,7 +1,8 @@
 import React from 'react';
-import { CalendarCheck, Menu } from 'lucide-react';
+import { CalendarCheck, LogIn, Menu } from 'lucide-react';
 import { PracticeContent } from '../data/content';
 import { MartinKnopperLogo } from './BrandMark';
+import { IURIO_LOGIN_URL } from './BottomBarAndFooter';
 
 interface TopNavProps {
   content: PracticeContent;
@@ -57,6 +58,18 @@ export function TopNav({ content, activeSection, onOpenConsultation, onOpenMenu 
 
         {/* Zone 3: 1 primary CTA action with clear consultation icon */}
         <div className="flex items-center shrink-0">
+          {/* Small client login: existing clients go straight to their IURIO area */}
+          <a
+            href={IURIO_LOGIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={content.legal.loginLabel}
+            aria-label={content.legal.loginLabel}
+            className="hidden lg:inline-flex items-center gap-1.5 mr-4 min-h-[40px] px-1 text-xs font-semibold text-[#5E6476] dark:text-slate-400 hover:text-[#B84F05] dark:hover:text-[#F28C45] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EC6608]"
+          >
+            <LogIn className="w-4 h-4" aria-hidden="true" />
+            <span>{content.legal.loginShort}</span>
+          </a>
           <button
             type="button"
             onClick={onOpenConsultation}

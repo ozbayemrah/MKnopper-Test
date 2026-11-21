@@ -1,8 +1,11 @@
-import React from 'react';
-import { CalendarCheck, Mail, Moon, Phone, Sun, X } from 'lucide-react';
+import React, { useCallback, useState } from 'react';
+import { CalendarCheck, LogIn, Mail, Moon, Phone, Sun, X } from 'lucide-react';
 import { PracticeContent } from '../data/content';
 import { Locale, Theme } from '../types/app';
 import { MartinKnopperLogo } from './BrandMark';
+import { LegalDialog } from './LegalDialog';
+
+export const IURIO_LOGIN_URL = 'https://knopper.iurio.com/';
 
 interface BottomBarAndFooterProps {
   content: PracticeContent;
@@ -27,9 +30,18 @@ export function BottomBarAndFooter({
   onToggleTheme,
   onOpenConsultation,
 }: BottomBarAndFooterProps) {
+  const [legalView, setLegalView] = useState<'imprint' | 'terms' | null>(null);
+  const closeLegal = useCallback(() => setLegalView(null), []);
 
   return (
     <>
+      <LegalDialog
+        content={content}
+        open={legalView !== null}
+        focus={legalView ?? 'imprint'}
+        onClose={closeLegal}
+      />
+
       {/* Quiet Editorial Footer */}
       <footer className="bg-[#102D69] dark:bg-[#070B14] text-white pt-12 pb-10 border-t border-[#102D69]/10 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,9 +88,26 @@ export function BottomBarAndFooter({
           </div>
 
           <div className="pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-300">
-            <span>
-              © {new Date().getFullYear()} {content.meta.advisorTitle} · knopper-stb.at
-            </span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <span>
+                © {new Date().getFullYear()} {content.meta.advisorTitle} · knopper-stb.at
+              </span>
+              <button type="button" onClick={() => setLegalView('imprint')} className="underline underline-offset-2 hover:text-white transition-colors cursor-pointer">
+                {content.legal.imprintLink}
+              </button>
+              <button type="button" onClick={() => setLegalView('terms')} className="underline underline-offset-2 hover:text-white transition-colors cursor-pointer">
+                {content.legal.termsLink}
+              </button>
+              <a
+                href={IURIO_LOGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 underline underline-offset-2 hover:text-white transition-colors"
+              >
+                <LogIn className="w-3.5 h-3.5" aria-hidden="true" />
+                {content.legal.loginLabel}
+              </a>
+            </div>
             <div className="flex flex-wrap items-center gap-4">
               <a href="#services" className="hover:text-white transition-colors">
                 {content.nav.services}
@@ -243,6 +272,15 @@ export function BottomBarAndFooter({
                 <span>{content.mobileBar.mailLabel}</span>
               </a>
             </div>
+            <a
+              href={IURIO_LOGIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 min-h-[44px] flex items-center justify-center gap-2 text-sm font-semibold text-[#102D69] dark:text-white underline underline-offset-2"
+            >
+              <LogIn className="w-4 h-4" aria-hidden="true" />
+              <span>{content.legal.loginLabel}</span>
+            </a>
           </div>
         </div>
       )}
